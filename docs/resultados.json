@@ -1,0 +1,73 @@
+{
+  "status": "aprovado",
+  "data": "2026-10-27T16:14:06.251168-03:00",
+  "ghdl": "GHDL 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]",
+  "verificacoes": {
+    "referencia": {
+      "pares_referencia": 1048576,
+      "vetor_conhecido": "aprovado"
+    },
+    "blocos": {
+      "valores_por_bloco": 1024,
+      "digitos": 16,
+      "amostras": 1025
+    },
+    "controle": {
+      "bordas": 144,
+      "estados": 11,
+      "estados_interrompidos_por_reset": 11,
+      "combinacoes_estado_confirmar_escolha": 26
+    },
+    "datapath": {
+      "bordas": 17412,
+      "seletores": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "valores_por_operacao": 1024
+    },
+    "nucleo": {
+      "bordas": 26363,
+      "ciclos_completos": 1052,
+      "pares_distintos": 1051,
+      "mensagens_distintas": 1024,
+      "chaves_distintas": 1024,
+      "vetores_conhecidos": 1,
+      "estados_interrompidos_por_reset": 11
+    },
+    "top": {
+      "bordas": 1321,
+      "ciclos_completos": 5,
+      "pares_distintos": 6,
+      "mensagens_distintas": 5,
+      "chaves_distintas": 5,
+      "vetores_conhecidos": 1,
+      "estados_interrompidos_por_reset": 3,
+      "pulsos_fisicos": 33,
+      "estados_exibidos": 11,
+      "reset_fisico_em_S3": true
+    },
+    "condicionador_1": {
+      "ciclos_debounce": 1,
+      "bordas": 139,
+      "pulsos": 11
+    },
+    "condicionador_4": {
+      "ciclos_debounce": 4,
+      "bordas": 139,
+      "pulsos": 3
+    },
+    "condicionador_7": {
+      "ciclos_debounce": 7,
+      "bordas": 139,
+      "pulsos": 3
+    }
+  },
+  "sintese_generica_ghdl": "aprovada; nao equivale a sintese/fitting/timing Quartus"
+}

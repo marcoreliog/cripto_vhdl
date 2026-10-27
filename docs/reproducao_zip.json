@@ -1,0 +1,21 @@
+{
+  "status": "aprovado",
+  "data": "2026-10-27T16:21:22.767822-03:00",
+  "comandos": [
+    "make test",
+    "make check",
+    "make preparar-quartus"
+  ],
+  "verificacoes_identicas_ao_workspace": true,
+  "fontes_e_testes_extraidos_do_zip": true,
+  "ghdl_externo_ao_zip": true,
+  "conferencia": {
+    "status": "aprovado",
+    "fontes_rtl": 15,
+    "pinos": 71,
+    "qsf_executado_em_tcl": true,
+    "quartus_sh_disponivel": false,
+    "quartus_sta_disponivel": false,
+    "limite": "Conferencia estrutural; SDC/netlist/fitting exigem Quartus."
+  }
+}

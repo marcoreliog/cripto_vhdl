@@ -1,0 +1,26 @@
+# DE10-Lite: Terasic User Manual, 05/06/2020, p. 5 e tabelas 3-2..3-6.
+# Pinout conferido no manual; compilacao fisica ainda requer Quartus/MAX 10.
+set_global_assignment -name FAMILY "MAX 10"
+set_global_assignment -name DEVICE 10M50DAF484C7G
+set_global_assignment -name TOP_LEVEL_ENTITY cifrador_de10_lite
+set_global_assignment -name VHDL_INPUT_VERSION VHDL_2008
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY ../build/quartus/output_files
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"
+
+set_global_assignment -name VHDL_FILE ../rtl/cifrador_pkg.vhd
+set_global_assignment -name VHDL_FILE ../rtl/xor10.vhd
+set_global_assignment -name VHDL_FILE ../rtl/rotacao_esquerda3.vhd
+set_global_assignment -name VHDL_FILE ../rtl/permutacao_pares.vhd
+set_global_assignment -name VHDL_FILE ../rtl/rotacao_direita3.vhd
+set_global_assignment -name VHDL_FILE ../rtl/mux_operacao.vhd
+set_global_assignment -name VHDL_FILE ../rtl/mux_saida.vhd
+set_global_assignment -name VHDL_FILE ../rtl/registrador10.vhd
+set_global_assignment -name VHDL_FILE ../rtl/datapath.vhd
+set_global_assignment -name VHDL_FILE ../rtl/unidade_controle.vhd
+set_global_assignment -name VHDL_FILE ../rtl/nucleo_cifrador.vhd
+set_global_assignment -name VHDL_FILE ../rtl/condicionador_entradas.vhd
+set_global_assignment -name VHDL_FILE ../rtl/decodificador_hex.vhd
+set_global_assignment -name VHDL_FILE ../rtl/exibicao.vhd
+set_global_assignment -name VHDL_FILE ../rtl/cifrador_de10_lite.vhd
+set_global_assignment -name SDC_FILE cifrador.sdc
+source pins_de10_lite.qsf

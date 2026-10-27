@@ -1,0 +1,9 @@
+{
+  "status": "aprovado",
+  "fontes_rtl": 15,
+  "pinos": 71,
+  "qsf_executado_em_tcl": true,
+  "quartus_sh_disponivel": false,
+  "quartus_sta_disponivel": false,
+  "limite": "Conferencia estrutural; SDC/netlist/fitting exigem Quartus."
+}

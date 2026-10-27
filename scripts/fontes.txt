@@ -1,0 +1,15 @@
+rtl/cifrador_pkg.vhd
+rtl/xor10.vhd
+rtl/rotacao_esquerda3.vhd
+rtl/permutacao_pares.vhd
+rtl/rotacao_direita3.vhd
+rtl/mux_operacao.vhd
+rtl/mux_saida.vhd
+rtl/registrador10.vhd
+rtl/datapath.vhd
+rtl/unidade_controle.vhd
+rtl/nucleo_cifrador.vhd
+rtl/condicionador_entradas.vhd
+rtl/decodificador_hex.vhd
+rtl/exibicao.vhd
+rtl/cifrador_de10_lite.vhd

@@ -1,0 +1,34 @@
+# Fonte: Terasic DE10-Lite User Manual, 05/06/2020, tabelas 3-2..3-6.
+# https://www.mouser.com/datasheet/2/598/DE10-Lite_User_Manual-1100361.pdf
+# Cada lista esta em ordem crescente de indice: [0], [1], ...
+set_location_assignment PIN_P11 -to MAX10_CLK1_50
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MAX10_CLK1_50
+
+set pinos_key {B8 A7}
+set pinos_sw {C10 C11 D12 C12 A12 B12 A13 A14 B14 F15}
+set pinos_led {A8 A9 A10 B10 D13 C13 E14 D14 A11 B11}
+set pinos_hex0 {C14 E15 C15 C16 E16 D17 C17 D15}
+set pinos_hex1 {C18 D18 E18 B16 A17 A18 B17 A16}
+set pinos_hex2 {B20 A20 B19 A21 B21 C22 B22 A19}
+set pinos_hex3 {F21 E22 E21 C19 C20 D19 E17 D22}
+set pinos_hex4 {F18 E20 E19 J18 H19 F19 F20 F17}
+set pinos_hex5 {J20 K20 L18 N18 M20 N19 N20 L19}
+
+foreach {barramento pinos padrao} [list \
+    KEY $pinos_key "3.3 V SCHMITT TRIGGER" \
+    SW $pinos_sw "3.3-V LVTTL" \
+    LEDR $pinos_led "3.3-V LVTTL" \
+    HEX0 $pinos_hex0 "3.3-V LVTTL" \
+    HEX1 $pinos_hex1 "3.3-V LVTTL" \
+    HEX2 $pinos_hex2 "3.3-V LVTTL" \
+    HEX3 $pinos_hex3 "3.3-V LVTTL" \
+    HEX4 $pinos_hex4 "3.3-V LVTTL" \
+    HEX5 $pinos_hex5 "3.3-V LVTTL"] {
+    set indice 0
+    foreach pino $pinos {
+        set porta [format {%s[%d]} $barramento $indice]
+        set_location_assignment PIN_$pino -to $porta
+        set_instance_assignment -name IO_STANDARD $padrao -to $porta
+        incr indice
+    }
+}
