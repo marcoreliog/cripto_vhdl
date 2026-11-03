@@ -1,10 +1,4 @@
-build/
-dist/
+/sim/
 __pycache__/
 *.pyc
-quartus/db/
-quartus/incremental_db/
-quartus/output_files/
-quartus/*.qws
-quartus/*.qdf
-quartus/*.smsg
+work-obj08.cf
