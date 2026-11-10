@@ -1,6 +1,3 @@
-// node docs/gerar_diagrama_fsm.cjs
-// Usa o parser do TerosHDL instalado para conferir estados e transicoes.
-// O posicionamento e fixo para separar as duas fases da FSM.
 const fs = require('fs');
 const path = require('path');
 const os = require('os');
@@ -37,7 +34,6 @@ async function main() {
     assert.strictEqual(machines.length, 1, 'Esperada uma unica FSM.');
     const machine = machines[0];
 
-    // [estado, x, y, largura, altura, fase, nome, acao]
     const nodes = [
         ['S0', 830, 122, 380, 86, 'neutral', 'RESET', 'Limpa dados, VAL e acerto'],
         ['S1', 830, 270, 380, 86, 'neutral', 'MENU', '0: cifrar  |  1: decifrar'],
@@ -57,7 +53,7 @@ async function main() {
         ['S15', 1335, 1330, 340, 86, 'decrypt', 'COMPARAR', 'acerto ← (X = V)'],
         ['S16', 1335, 1490, 340, 86, 'decrypt', 'RESULTADO', 't: acerto   |   F: erro'],
     ];
-    // [origem, destino, caminho, texto, x do texto, y do texto, estilo]
+
     const routes = [
         ['S0', 'S1', 'M 1020 208 V 270', 'automático', 1098, 243, 'auto'],
         ['S1', 'S2', 'M 900 356 V 400 H 535 V 550', 'modo = 0 + confirmar', 685, 385, 'encrypt'],
@@ -85,7 +81,7 @@ async function main() {
         ['S16', 'S9', 'M 1675 1533 H 2000 V 593 H 1675', 'tentar_novamente', 1825, 576, 'decrypt'],
     ];
 
-    // Confere a topologia do VHDL antes de gerar o diagrama.
+
     assert.deepStrictEqual(machine.states.map(state => state.name).sort(), nodes.map(node => node[0]).sort());
     const actual = machine.states.flatMap(state => state.transitions.map(transition =>
         `${state.name}->${transition.destination}`)).sort();
@@ -131,7 +127,7 @@ async function main() {
         parts.push(`<g data-source="${from}" data-target="${to}"><title>${escape(`${from} → ${to}: ${conditions.get(`${from}->${to}`) || 'automático'}`)}</title>`);
         parts.push(`<path d="${visibleRoute}" fill="none" stroke="${colors[style]}" stroke-width="2.5" stroke-linejoin="round"${style === 'auto' ? ' stroke-dasharray="8 6"' : ''}${marker}/></g>`);
     }
-    // Barramentos de retorno desenhados uma unica vez para nao sobrepor setas.
+
     for (const route of ['M 825 1265 H 110 V 900 H 365', 'M 1795 1290 H 1080 V 900 H 1335']) {
         parts.push(`<path d="${route}" fill="none" stroke="${colors.auto}" stroke-width="2.5" stroke-dasharray="8 6" stroke-linejoin="round" marker-end="url(#arrow-auto)"/>`);
     }

@@ -1,7 +1,3 @@
--- Teste isolado da FSM de controladora_fsm.md.
--- O modelo abaixo substitui apenas o datapath ainda incompleto do ZIP.
--- Exemplo: ghdl -a --std=08 xor.vhd roller.vhd permuter.vhd controller.vhd tb_controller.vhd
---          ghdl -r --std=08 tb_controller --assert-level=error
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -17,7 +13,8 @@ architecture test of tb_controller is
     signal switches, v, k, x, c : word := (others => '0');
     signal prox_x, r_xor, r_rot, r_perm : word;
     signal ld_x, ld_k, ld_v, ld_c, rot_dir, valido, acerto, clear : std_logic;
-    signal igual : std_logic;
+    signal igual, igual_real : std_logic;
+    signal x_real, c_real : word;
     signal igual_forcado : std_logic := 'X';
     signal sel : std_logic_vector(2 downto 0);
     signal estado : std_logic_vector(4 downto 0);
@@ -31,11 +28,18 @@ begin
             modo_decifrar => modo, igual => igual, tentar_novamente => tentar
         );
 
+    dp : entity work.datapath
+        port map (
+            clock => clock, clear => clear, switches => switches,
+            ld_v => ld_v, ld_k => ld_k, ld_x => ld_x, ld_c => ld_c,
+            rot_dir => rot_dir, sel => sel, igual => igual_real,
+            valor_saida => x_real, cifrado => c_real
+        );
+
     ox : entity work.XOR_cripto port map (A => x, B => k, X => r_xor);
     ro : entity work.roller port map (mode => rot_dir, A => x, R => r_rot);
     pe : entity work.permuter port map (A => x, P => r_perm);
-    igual <= igual_forcado when igual_forcado /= 'X' else
-             '1' when x = v else '0';
+    igual <= igual_forcado when igual_forcado /= 'X' else igual_real;
     with sel select prox_x <=
         switches when "000", r_xor when "001", r_rot when "010",
         r_perm when "011", c when "100", x when others;
@@ -91,6 +95,13 @@ begin
         begin
             clock <= '0'; wait for 5 ns;
             clock <= '1'; wait for 1 ns;
+            assert x_real = x and c_real = c
+                report "Datapath real divergiu do modelo de referencia" severity failure;
+            if x = v then
+                assert igual_real = '1' report "Comparador nao reconheceu X = V" severity failure;
+            else
+                assert igual_real = '0' report "Comparador aceitou X diferente de V" severity failure;
+            end if;
             visited(to_integer(unsigned(estado))) := true;
             clock <= '0'; wait for 4 ns;
         end procedure;
@@ -102,7 +113,6 @@ begin
                        integer'image(to_integer(unsigned(estado))) severity failure;
         end procedure;
 
-        -- Cada pressao inclui uma borda com o botao solto para rearmar.
         procedure press is
         begin
             enter <= '0'; tick;
@@ -206,7 +216,6 @@ begin
         modo <= '1'; press; expect_state(1);
         assert valido = '0' report "Nao pode decifrar sem desafio" severity failure;
 
-        -- Segurar enter nao atravessa estados de entrada nem grava switches.
         modo <= '0'; enter <= '0'; tick; enter <= '1'; tick; expect_state(2);
         switches <= bits(511);
         for count in 1 to 5 loop tick; expect_state(2); end loop;
@@ -217,13 +226,11 @@ begin
         switches <= bits(1023); op <= "11"; tick; tick;
         expect_state(4); assert k = bits(3) and x = bits(511) severity failure;
 
-        -- Quatro XOR consecutivos: terceira e quarta operacoes continuam em S4.
         for count in 1 to 4 loop operation(1, false); end loop;
         assert x = v severity failure;
         save_challenge; saved_c := c; saved_v := v;
         start_attempt;
 
-        -- Manter o aperto que escolheu XOR nao confirma a chave em S11.
         op <= "01"; enter <= '0'; tick; old_k := k;
         enter <= '1'; tick; expect_state(11); switches <= bits(5);
         for count in 1 to 5 loop tick; expect_state(11); end loop;
@@ -233,7 +240,6 @@ begin
         finish_attempt('1');
         assert c = saved_c and v = saved_v severity failure;
 
-        -- Acerto e registrado; enter/op nao inventam um comando de saida de S16.
         igual_forcado <= '0'; op <= "00"; press; expect_state(16);
         op <= "11"; press; expect_state(16);
         assert acerto = '1' severity failure;
@@ -242,14 +248,12 @@ begin
         igual_forcado <= '1'; tick;
         assert acerto = '0' severity failure;
         igual_forcado <= 'X'; retry_attempt;
-        finish_attempt('1'); -- Zero operacoes na nova tentativa.
+        finish_attempt('1');
 
-        -- Zero operacoes tambem e valido na cifragem.
         reset_to_menu; create_challenge(341, 777);
         save_challenge; assert c = bits(341) severity failure;
         start_attempt; finish_attempt('1');
 
-        -- Nivel alto durante a execucao nao repete uma operacao ao voltar a S4.
         reset_to_menu; create_challenge(1, 3); op <= "01";
         enter <= '0'; tick; enter <= '1'; tick; expect_state(7);
         tick; expect_state(4); assert x = bits(2) severity failure;
@@ -257,7 +261,6 @@ begin
         assert x = bits(2) severity failure;
         enter <= '0'; tick;
 
-        -- Todas as 81 sequencias de quatro operacoes, com seis pares valor/chave.
         for sample in 0 to 5 loop
             for code_sequence in 0 to 80 loop
                 reset_to_menu;
@@ -278,7 +281,6 @@ begin
             end loop;
         end loop;
 
-        -- Reset prioritario a partir de cada um dos 17 estados.
         for target in 0 to 16 loop
             enter <= '0'; tentar <= '0'; reset <= '1'; tick; reset <= '0';
             steps := 0;
@@ -306,18 +308,18 @@ begin
                     when others => tick;
                 end case;
             end loop;
-            -- Mesmo com os dois comandos ativos, somente o reset e aceito.
+
             reset <= '1'; enter <= '1'; tentar <= '1'; tick; expect_state(0);
             assert v = bits(0) and k = bits(0) and x = bits(0) and c = bits(0)
                 and valido = '0' and acerto = '0' severity failure;
             reset <= '0'; tick; expect_state(1);
-            tick; expect_state(1); -- Botao segurado ao liberar reset nao confirma.
+            tick; expect_state(1);
         end loop;
 
         for index in visited'range loop
             assert visited(index) report "Estado sem cobertura" severity failure;
         end loop;
-        report "OK: FSM S0-S16, 486 sequencias, operacoes livres, palpites, resultado, repeticao, botao e reset";
+        report "OK: controller + datapath reais, 486 sequencias, operacoes livres, palpites, resultado, repeticao, botao e reset S0-S16";
         stop;
         wait;
     end process;

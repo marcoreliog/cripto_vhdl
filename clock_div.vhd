@@ -1,8 +1,7 @@
---CLOCK DIVIDER
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
--- Pulso periódico de enable, sem criar um segundo clock.
+
 entity clock_div is
  generic(DIVISOR : positive := 50000);
  port(clk, reset : in std_logic; tick : out std_logic);
