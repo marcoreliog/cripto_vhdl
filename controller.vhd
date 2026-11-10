@@ -1,112 +1,227 @@
+-- Controladora do cifrador: FSM descrita em controladora_fsm.md.
+-- enter e tentar_novamente devem chegar sincronizados com clock.
 library ieee;
 use ieee.std_logic_1164.all;
-use ieee.numeric_std.all;
+
 entity controller is
- port(clk, reset, confirmar, modo_decifrar, fim_camadas, cifrado_valido : in std_logic;
-      operacao : in std_logic_vector(1 downto 0);
-      ld_v, ld_k, ld_x, ld_c, rot_mode, clr_n, inc_n, ld_acerto, clr_acerto, set_valido, clr_valido, sel_saida : out std_logic;
-      sel_x : out std_logic_vector(2 downto 0);
-      estado : out std_logic_vector(3 downto 0));
-end entity;
-architecture rtl of controller is
- -- A posicao no tipo preserva a interface estado = S0 ... S15.
- type estado_t is (
-  INIT, INSERIR_VALOR, INSERIR_CHAVE_C, SELECIONAR_C,
-  PERMUTAR_C, ROL_C, XOR_C, SALVAR_CIFRADO,
-  PREPARA_TENTATIVA, SELECIONAR_D, PERMUTAR_D, ROR_D,
-  INSERIR_CHAVE_D, XOR_D, COMPARAR, RESULTADO
- );
- signal atual, prox : estado_t;
+    port (
+        enter, clock : in std_logic;
+        reset : in std_logic := '0';
+        op : in std_logic_vector(1 downto 0);
+
+        ld_x, ld_k, ld_v, ld_c : out std_logic;
+        sel : out std_logic_vector(2 downto 0);
+        rot_dir, existe_cripto, acerto, clear : out std_logic;
+        estado : out std_logic_vector(4 downto 0) := "00000";
+
+        -- Lido em S1: 0 cria um desafio; 1 inicia a decifragem.
+        modo_decifrar : in std_logic := '0';
+        -- Realimentacao do comparador: X_reg = V_reg.
+        igual : in std_logic := '0';
+        -- Comando logico de S16, ainda sem mapeamento fisico definido.
+        -- Sem conexao, S16 aguarda o reset global.
+        tentar_novamente : in std_logic := '0'
+    );
+end controller;
+
+architecture fsm of controller is
+    -- S0: reset; S1: menu; S2: inserir valor; S3: inserir chave C.
+    -- S4: selecionar C; S5: permutar C; S6: ROL C; S7: XOR C.
+    -- S8: salvar cifrado; S9: preparar tentativa; S10: selecionar D.
+    -- S11: inserir chave D; S12: XOR D; S13: ROR D; S14: permutar D.
+    -- S15: comparar; S16: resultado.
+    type state_t is (
+        S0, S1, S2, S3, S4, S5, S6, S7, S8,
+        S9, S10, S11, S12, S13, S14, S15, S16
+    );
+    signal estado_atual, estado_prox : state_t := S0;
+    signal valido_reg, acerto_reg : std_logic := '0';
+    signal enter_anterior, repetir_anterior : std_logic := '0';
+    signal confirmar, repetir : std_logic;
 begin
- estado <= std_logic_vector(to_unsigned(estado_t'pos(atual), 4));
- process(clk)
- begin
-  if rising_edge(clk) then
-   if reset = '1' then atual <= INIT;
-   else atual <= prox;
-   end if;
-  end if;
- end process;
- process(all)
- begin
-  -- Padroes em todas as saidas: sem latches e sem cargas acidentais.
-  prox <= atual;
-  ld_v <= '0';
-  ld_k <= '0';
-  ld_x <= '0';
-  ld_c <= '0';
-  rot_mode <= '0';
-  clr_n <= '0';
-  inc_n <= '0';
-  ld_acerto <= '0';
-  clr_acerto <= '0';
-  set_valido <= '0';
-  clr_valido <= '0';
-  sel_saida <= '0';
-  sel_x <= "000";
-  case atual is
-   when INIT =>
-    if confirmar = '1' then
-     if modo_decifrar = '0' then
-      clr_valido <= '1'; clr_acerto <= '1'; prox <= INSERIR_VALOR;
-     elsif cifrado_valido = '1' then
-      prox <= PREPARA_TENTATIVA;
-     end if;
-    end if;
-   when INSERIR_VALOR =>
-    if confirmar = '1' then ld_v <= '1'; ld_x <= '1'; prox <= INSERIR_CHAVE_C; end if;
-   when INSERIR_CHAVE_C =>
-    if confirmar = '1' then ld_k <= '1'; clr_n <= '1'; prox <= SELECIONAR_C; end if;
-   when SELECIONAR_C =>
-    -- O teste de n = 3 tem prioridade; nao existe quarta operacao.
-    if fim_camadas = '1' then prox <= SALVAR_CIFRADO;
-    elsif confirmar = '1' then
-     case operacao is
-      when "00" => prox <= PERMUTAR_C;
-      when "01" => prox <= ROL_C;
-      when "10" => prox <= XOR_C;
-      when others => null;
-     end case;
-    end if;
-   when PERMUTAR_C | ROL_C | XOR_C =>
-    ld_x <= '1'; inc_n <= '1'; prox <= SELECIONAR_C;
-    case atual is
-     when PERMUTAR_C => sel_x <= "011";
-     when ROL_C => sel_x <= "010"; rot_mode <= '1';
-     when others => sel_x <= "001";
-    end case;
-   when SALVAR_CIFRADO =>
-    -- X ja recebeu a terceira operacao em um clock anterior.
-    ld_c <= '1'; set_valido <= '1'; prox <= INIT;
-   when PREPARA_TENTATIVA =>
-    ld_x <= '1'; sel_x <= "100"; clr_n <= '1'; clr_acerto <= '1';
-    prox <= SELECIONAR_D;
-   when SELECIONAR_D =>
-    if fim_camadas = '1' then prox <= COMPARAR;
-    elsif confirmar = '1' then
-     case operacao is
-      when "00" => prox <= PERMUTAR_D;
-      when "01" => prox <= ROR_D;
-      when "10" => prox <= INSERIR_CHAVE_D;
-      when others => null;
-     end case;
-    end if;
-   when PERMUTAR_D | ROR_D | XOR_D =>
-    ld_x <= '1'; inc_n <= '1'; prox <= SELECIONAR_D;
-    case atual is
-     when PERMUTAR_D => sel_x <= "011";
-     when ROR_D => sel_x <= "010";
-     when others => sel_x <= "001";
-    end case;
-   when INSERIR_CHAVE_D =>
-    -- Confirmar o palpite nao incrementa n. S13 executa a camada.
-    if confirmar = '1' then ld_k <= '1'; prox <= XOR_D; end if;
-   when COMPARAR =>
-    -- Comparacao usa X registrado; o LED so e carregado aqui.
-    ld_acerto <= '1'; prox <= RESULTADO;
-   when RESULTADO =>
-    if confirmar = '1' then prox <= PREPARA_TENTATIVA; end if;
-  end case;
-  if atual = INIT and cifrado_valido = '1' then sel_saida <= '1'; end if;
- end process;
-end architecture;
+    existe_cripto <= valido_reg;
+    acerto <= acerto_reg;
+    confirmar <= enter and not enter_anterior;
+    repetir <= tentar_novamente and not repetir_anterior;
+
+    process (clock)
+    begin
+        if rising_edge(clock) then
+            -- Um comando por aperto, inclusive ao sair de um reset.
+            enter_anterior <= enter;
+            repetir_anterior <= tentar_novamente;
+
+            if reset = '1' then
+                estado_atual <= S0;
+                valido_reg <= '0';
+                acerto_reg <= '0';
+            else
+                estado_atual <= estado_prox;
+
+                if estado_atual = S0 or
+                   (estado_atual = S1 and confirmar = '1' and modo_decifrar = '0') then
+                    valido_reg <= '0';
+                elsif estado_atual = S8 then
+                    valido_reg <= '1';
+                end if;
+
+                if estado_atual = S0 or estado_atual = S9 or
+                   (estado_atual = S1 and confirmar = '1' and modo_decifrar = '0') then
+                    acerto_reg <= '0';
+                elsif estado_atual = S15 then
+                    -- O resultado depende de X = V, nao da igualdade das chaves.
+                    acerto_reg <= igual;
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (estado_atual, confirmar, repetir, op, modo_decifrar, valido_reg, reset)
+    begin
+        ld_v <= '0';
+        ld_k <= '0';
+        ld_x <= '0';
+        ld_c <= '0';
+        rot_dir <= '0';
+        clear <= reset;
+        -- MUX de X: 000 SW; 001 XOR; 010 roller; 011 permuter; 100 C.
+        sel <= "000";
+        estado_prox <= estado_atual;
+
+        case estado_atual is
+            when S0 =>
+                clear <= '1';
+                estado_prox <= S1;
+
+            when S1 =>
+                if confirmar = '1' and modo_decifrar = '0' then
+                    estado_prox <= S2;
+                elsif confirmar = '1' and modo_decifrar = '1' and valido_reg = '1' then
+                    estado_prox <= S9;
+                end if;
+
+            when S2 =>
+                if confirmar = '1' then
+                    ld_v <= '1';
+                    ld_x <= '1';
+                    estado_prox <= S3;
+                end if;
+
+            when S3 =>
+                if confirmar = '1' then
+                    ld_k <= '1';
+                    estado_prox <= S4;
+                end if;
+
+            when S4 =>
+                -- Operacoes livres: somente 00 confirmado encerra a fase.
+                if confirmar = '1' and op = "00" then
+                    estado_prox <= S8;
+                elsif confirmar = '1' and op = "01" then
+                    estado_prox <= S7;
+                elsif confirmar = '1' and op = "10" then
+                    estado_prox <= S6;
+                elsif confirmar = '1' and op = "11" then
+                    estado_prox <= S5;
+                end if;
+
+            when S5 =>
+                ld_x <= '1';
+                sel <= "011";
+                estado_prox <= S4;
+
+            when S6 =>
+                ld_x <= '1';
+                sel <= "010";
+                rot_dir <= '1';
+                estado_prox <= S4;
+
+            when S7 =>
+                ld_x <= '1';
+                sel <= "001";
+                estado_prox <= S4;
+
+            when S8 =>
+                -- C recebe o X ja registrado, mesmo apos zero operacoes.
+                ld_c <= '1';
+                estado_prox <= S1;
+
+            when S9 =>
+                ld_x <= '1';
+                sel <= "100";
+                estado_prox <= S10;
+
+            when S10 =>
+                if confirmar = '1' and op = "00" then
+                    estado_prox <= S15;
+                elsif confirmar = '1' and op = "01" then
+                    estado_prox <= S11;
+                elsif confirmar = '1' and op = "10" then
+                    estado_prox <= S13;
+                elsif confirmar = '1' and op = "11" then
+                    estado_prox <= S14;
+                end if;
+
+            when S11 =>
+                -- Exige outro aperto para confirmar o palpite de cada XOR.
+                if confirmar = '1' then
+                    ld_k <= '1';
+                    estado_prox <= S12;
+                end if;
+
+            when S12 =>
+                ld_x <= '1';
+                sel <= "001";
+                estado_prox <= S10;
+
+            when S13 =>
+                ld_x <= '1';
+                sel <= "010";
+                estado_prox <= S10;
+
+            when S14 =>
+                ld_x <= '1';
+                sel <= "011";
+                estado_prox <= S10;
+
+            when S15 =>
+                estado_prox <= S16;
+
+            when S16 =>
+                -- O display usa estado = 10000 e acerto para mostrar t/F.
+                if repetir = '1' then
+                    estado_prox <= S9;
+                end if;
+        end case;
+
+        -- O reset tambem bloqueia cargas e limpa o datapath na mesma borda.
+        if reset = '1' then
+            estado_prox <= S0;
+            ld_v <= '0';
+            ld_k <= '0';
+            ld_x <= '0';
+            ld_c <= '0';
+            sel <= "000";
+            rot_dir <= '0';
+        end if;
+    end process;
+
+    with estado_atual select
+        estado <= "00000" when S0,
+                  "00001" when S1,
+                  "00010" when S2,
+                  "00011" when S3,
+                  "00100" when S4,
+                  "00101" when S5,
+                  "00110" when S6,
+                  "00111" when S7,
+                  "01000" when S8,
+                  "01001" when S9,
+                  "01010" when S10,
+                  "01011" when S11,
+                  "01100" when S12,
+                  "01101" when S13,
+                  "01110" when S14,
+                  "01111" when S15,
+                  "10000" when S16;
+end fsm;
