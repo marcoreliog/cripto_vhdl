@@ -5,7 +5,7 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 entity controller is
 	port(
-		enter, clock, modo, equals : in std_logic;
+		enter, clock, modo, equals, existe_cripto : in std_logic;
 		
 		reset : in std_logic := '0';
 		
@@ -16,7 +16,7 @@ entity controller is
 		
 		ld_x, ld_k, ld_v, ld_c : out std_logic;
 		sel : out std_logic_vector(2 downto 0);
-		rot_dir, existe_cripto, clear : out std_logic;
+		rot_dir, clear : out std_logic;
 		display : out std_logic_vector(3 downto 0) := "0000" --controle do display
 	);
 end entity;
@@ -52,7 +52,6 @@ begin
 	  	   ld_c <= '0';
 		   rot_dir <= '0';
 		   clear <= '0';
-		   existe_cripto <= '0';
 			compare <= '0';
 		   sel <= "000";
 		   estado <= "0000";
@@ -65,8 +64,11 @@ begin
 				prox <= MENU;
 			WHEN MENU => 
 				if enter = '0' THEN
-					if modo = '0' THEN prox <= INSERT_V;
-					elsif modo = '1' AND existe_cripto = '1' THEN prox <= ATTEMPT_D;
+					if modo = '0' THEN
+						clear <= '1';
+						prox <= INSERT_V;
+					elsif modo = '1' AND existe_cripto = '1' THEN 
+						prox <= ATTEMPT_D;
 					end if;
 				end if;
 			WHEN INSERT_V => 
