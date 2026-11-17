@@ -1,0 +1,77 @@
+--CONTROLLER
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+entity controller is
+	port(
+		enter, clock : in std_logic;
+		reset : in std_logic := '0';
+		op : in std_logic_vector(1 downto 0);
+		
+		ld_x, ld_k, ld_v, ld_c : out std_logic;
+		sel : out std_logic_vector(2 downto 0);
+		rot_dir, existe_cripto, acerto, clear : out std_logic;
+		estado : out std_logic_vector(4 downto 0) := "00000"
+	);
+end entity;
+
+architecture arch_controller of controller is
+	type state is
+	(
+	INIT, MENU, INSERT_V, INSERT_K,
+	SEL_OP_C, PERM_C, ROL_C, XOR_C,
+	SAVE_C, ATTEMPT_D, SEL_OP_D,
+	TRY_K, XOR_D, ROR_D, PERM_D,
+	COMPARE_D, RESULT
+	);
+	
+	signal atual, prox : state := INIT;	
+	
+	
+begin
+	 clock_tick : process (clk)
+    begin
+        if rising_edge(clk) then
+            if reset = '1' then
+                atual <= INIT;
+            else
+                atual <= prox;
+            end if;
+        end if;
+    end process;
+	 
+	 state_control : process(all)
+	 begin
+		   prox <= atual;
+		   ld_v <= '0';
+		   ld_k <= '0';
+	 	   ld_x <= '0';
+	  	   ld_c <= '0';
+		   rot_dir <= '0';
+		   clear <= '0';
+		   existe_cripto <= '0';
+		   acerto <= '0';
+		   sel <= '000';
+		   estado <= '00000';
+		  
+		   case atual is
+			WHEN INIT =>
+				clear
+			WHEN MENU =>
+			WHEN INSERT_V =>
+			WHEN INSERT_K =>
+			WHEN SEL_OP_C =>
+			WHEN PERM_C =>
+			WHEN ROL_C =>
+			WHEN XOR_C =>
+			WHEN SAVE_C =>
+			WHEN ATTEMPT_D =>
+			WHEN SEL_OP_D =>
+			WHEN TRY_K =>
+			WHEN XOR_D =>
+			WHEN ROR_D =>
+			WHEN PERM_D =>
+			WHEN COMPARE_D =>
+			WHEN RESULT =>
+		  

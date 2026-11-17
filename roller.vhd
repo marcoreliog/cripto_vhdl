@@ -1,3 +1,5 @@
+--ROLLER
+
 library ieee;
 use ieee.std_logic_1164.all;
 
@@ -14,5 +16,5 @@ begin
 	with mode select
 	R <= A(6 downto 0) & A(9 downto 7) WHEN '1',
 		  A(2 downto 0) & A(9 downto 3) WHEN others;
-
+	
 end;
