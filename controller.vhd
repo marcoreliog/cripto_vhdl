@@ -53,14 +53,12 @@ begin
 		   rot_dir <= '0';
 		   clr <= '0';
 		   sel <= "000";
-		   estado <= "0000";
 			
 			
 		   case atual is
 			
 			WHEN INIT =>
 				clr <= '1';
-				existe_cripto <= '0';
 				prox <= MENU;
 				
 			WHEN MENU => 
@@ -140,7 +138,7 @@ begin
 				
 			WHEN TRY_K =>
 				if enter = '0' THEN
-					ld_k = '1';
+					ld_k <= '1';
 					prox <= XOR_D;
 				end if;
 			WHEN XOR_D =>
@@ -159,7 +157,7 @@ begin
 				
 			WHEN RESULT =>
 				if enter = '0' THEN	--estado parado para exibir o resultado
-					prox = MENU;
+					prox <= MENU;
 				end if;
 		  end case;
 		end process;
@@ -187,4 +185,3 @@ begin
 		 "1111" WHEN RESULT;
 		 
 end arch_controller;
-		  

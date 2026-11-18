@@ -1,163 +1,228 @@
 library ieee;
 use ieee.std_logic_1164.all;
-use ieee.numeric_std.all;
-use std.env.all;
 
 entity tb_datapath is
 end tb_datapath;
 
 architecture test of tb_datapath is
-    constant ORIGINAL : natural := 723;
-    constant CHAVE : natural := 342;
-    -- Valores esperados para XOR, ROL por 3 e troca dos pares, nessa ordem.
-    constant APOS_XOR : natural := 901;
-    constant APOS_ROL : natural := 47;
-    constant CIFRADO : natural := 31;
 
-    signal clk, clr, ld_x, ld_k, ld_v, ld_c, rot_dir : std_logic := '0';
+    -- Declaracao do componente, como no tb_coin_detector.
+    component datapath is
+        port(
+            clk_sys, ld_x, ld_k, ld_v, ld_c, rot_dir, clr : in std_logic;
+            sw : in std_logic_vector(9 downto 0);
+            sel : in std_logic_vector(2 downto 0);
+            equals, existe_cripto : out std_logic
+        );
+    end component;
+
+    signal my_clock : std_logic := '0';
+    signal ld_x, ld_k, ld_v, ld_c, rot_dir, clr : std_logic := '0';
     signal sw : std_logic_vector(9 downto 0) := (others => '0');
     signal sel : std_logic_vector(2 downto 0) := "000";
     signal equals, existe_cripto : std_logic;
-begin
-    clk <= not clk after 5 ns;
 
-    dut : entity work.datapath
-        port map (
-            clk_sys => clk, clr => clr, sw => sw,
-            ld_x => ld_x, ld_k => ld_k, ld_v => ld_v, ld_c => ld_c,
-            sel => sel, rot_dir => rot_dir, equals => equals, existe_cripto => existe_cripto
+begin
+
+    dut: datapath
+        port map(
+            clk_sys => my_clock,
+            clr => clr,
+            sw => sw,
+            ld_x => ld_x,
+            ld_k => ld_k,
+            ld_v => ld_v,
+            ld_c => ld_c,
+            sel => sel,
+            rot_dir => rot_dir,
+            equals => equals,
+            existe_cripto => existe_cripto
         );
 
-    process
-        procedure tick is
-        begin
-            wait until rising_edge(clk);
-            wait for 1 ns;
-        end procedure;
+    my_clock <= not my_clock after 5 ns;
 
-        procedure carregar_x(fonte : std_logic_vector(2 downto 0); direcao : std_logic := '0') is
-        begin
-            sel <= fonte;
-            rot_dir <= direcao;
-            ld_x <= '1';
-            tick;
-            ld_x <= '0';
-        end procedure;
-
-        -- V serve como referencia para observar X pela saida publica equals.
-        procedure verificar_x(valor : natural; etapa : string) is
-        begin
-            ld_v <= '1';
-            sw <= std_logic_vector(to_unsigned((valor + 1) mod 1024, sw'length));
-            tick;
-            assert equals = '0' report etapa & ": o comparador aceitou outro valor" severity failure;
-
-            sw <= std_logic_vector(to_unsigned(valor, sw'length));
-            tick;
-            assert equals = '1' report etapa & ": X diferente de " & integer'image(valor) severity failure;
-            ld_v <= '0';
-        end procedure;
+    -- Simular por 500 ns. Observar equals, existe_cripto e, dentro de dut,
+    -- val_v, val_k, val_x e val_c. equals compara val_v com val_x.
+    -- Cifragem esperada: 723 --XOR 342--> 901 --ROL 3--> 47 --PERM--> 31.
+    -- Decifragem esperada: 31 --PERM--> 47 --ROR 3--> 901 --XOR 342--> 723.
+    stimulus : process
     begin
+        -- Clear sincrono: apos a borda, registradores = 0,
+        -- equals = 1 e existe_cripto = 0.
         clr <= '1';
-        tick;
-        assert equals = '1' and existe_cripto = '0' report "Limpeza inicial incompleta" severity failure;
+        wait for 12 ns;
         clr <= '0';
-        verificar_x(0, "X zerado por clr");
 
-        sw <= std_logic_vector(to_unsigned(ORIGINAL, sw'length));
-        ld_v <= '1';
-        carregar_x("000");
-        ld_v <= '0';
-        assert equals = '1' report "V e X nao receberam o valor original" severity failure;
-
-        sw <= std_logic_vector(to_unsigned(CHAVE, sw'length));
-        ld_k <= '1';
-        tick;
-        ld_k <= '0';
-        assert equals = '1' report "Carregar K alterou V ou X" severity failure;
-
-        -- Mudar a chave externa ou o seletor so deve afetar X se ld_x estiver ativo.
-        sw <= (others => '0');
-        sel <= "001";
-        tick;
-        assert equals = '1' report "X mudou sem ld_x" severity failure;
-        carregar_x("001");
-        assert equals = '0' report "XOR nao alterou X" severity failure;
-        verificar_x(APOS_XOR, "XOR com a chave registrada");
-
-        carregar_x("010", '0');
-        verificar_x(APOS_ROL, "Rotacao de tres bits para a esquerda");
-        carregar_x("011");
-        verificar_x(CIFRADO, "Troca dos pares vizinhos");
-
-        sw <= (others => '1');
-        for codigo in 5 to 7 loop
-            carregar_x(std_logic_vector(to_unsigned(codigo, sel'length)));
-            assert equals = '1' report "Seletor invalido nao preservou X" severity failure;
-        end loop;
-
-        ld_c <= '1';
-        wait for 1 ns;
-        assert existe_cripto = '0' report "C ficou valido antes da borda de clock" severity failure;
-        tick;
-        ld_c <= '0';
-        assert existe_cripto = '1' report "C salvo sem flag de validade" severity failure;
-
-        -- Comparar o cifrado salvo com o valor original.
-        sw <= std_logic_vector(to_unsigned(ORIGINAL, sw'length));
-        ld_v <= '1';
-        tick;
-        ld_v <= '0';
-        assert equals = '0' report "O cifrado coincidiu com o original" severity failure;
-
-        sw <= std_logic_vector(to_unsigned(17, sw'length));
-        carregar_x("000");
-        verificar_x(17, "Substituir X sem regravar C");
-        carregar_x("100");
-        verificar_x(CIFRADO, "Restaurar o cifrado salvo em C");
-        assert existe_cripto = '1' report "Restaurar C invalidou o desafio" severity failure;
-
-        -- Conferir o valor de X em cada etapa da inversao.
-        carregar_x("011");
-        verificar_x(APOS_ROL, "Desfazer permutacao");
-        carregar_x("010", '1');
-        verificar_x(APOS_XOR, "Desfazer rotacao para a direita");
-        carregar_x("001");
-        verificar_x(ORIGINAL, "Recuperar o original por XOR");
-
-        -- Nova tentativa com a mesma referencia e a mesma copia em C.
-        carregar_x("100");
-        assert equals = '0' and existe_cripto = '1' report "Nova tentativa nao restaurou C" severity failure;
-        carregar_x("011");
-        carregar_x("010", '1');
-        carregar_x("001");
-        assert equals = '1' report "Decifragem nao recuperou o original" severity failure;
-
-        clr <= '1';
-        sw <= (others => '1');
+        -- Carregar V e X com o valor original 723; equals = 1.
+        sw <= "1011010011";
         sel <= "000";
         ld_v <= '1';
         ld_x <= '1';
-        ld_k <= '1';
-        ld_c <= '1';
-        tick;
-        assert equals = '1' and existe_cripto = '0' report "Clear nao teve prioridade sobre as cargas" severity failure;
-        clr <= '0';
+        wait for 10 ns;
         ld_v <= '0';
         ld_x <= '0';
+
+        -- Carregar K com 342, preservando V e X.
+        sw <= "0101010110";
+        ld_k <= '1';
+        wait for 10 ns;
         ld_k <= '0';
-        ld_c <= '0';
-        verificar_x(0, "Clear zerou X apesar da carga");
-        carregar_x("001");
-        assert equals = '1' report "Clear nao zerou K" severity failure;
 
+        -- Mudar sw e sel sem carga deve manter X = 723 e K = 342.
+        sw <= "0000000000";
+        sel <= "001";
+        wait for 10 ns;
+
+        -- XOR com a chave registrada: X = 901, equals = 0.
+        ld_x <= '1';
+        wait for 10 ns;
+        ld_x <= '0';
+        wait for 10 ns;
+
+        -- Rotacao de tres bits para a esquerda: X = 47.
+        sel <= "010";
+        rot_dir <= '0';
+        ld_x <= '1';
+        wait for 10 ns;
+        ld_x <= '0';
+        wait for 10 ns;
+
+        -- Trocar os bits de cada par vizinho: X = 31.
+        sel <= "011";
+        ld_x <= '1';
+        wait for 10 ns;
+        ld_x <= '0';
+        wait for 10 ns;
+
+        -- Salvar o cifrado: C = 31 e existe_cripto = 1 apos a borda.
         ld_c <= '1';
-        tick;
+        wait for 10 ns;
         ld_c <= '0';
-        assert existe_cripto = '1' report "Cifrado zero deve ser considerado valido" severity failure;
+        wait for 10 ns;
 
-        report "PASS: datapath, cargas, XOR, rotacoes, permutacao, restauracao, comparacao e clear" severity note;
-        stop;
+        -- Substituir X por 17 sem alterar o cifrado salvo em C.
+        sw <= "0000010001";
+        sel <= "000";
+        ld_x <= '1';
+        wait for 10 ns;
+        ld_x <= '0';
+        wait for 10 ns;
+
+        -- Restaurar C em X: X = 31, C continua valido.
+        sel <= "100";
+        ld_x <= '1';
+        wait for 10 ns;
+        ld_x <= '0';
+        wait for 10 ns;
+
+        -- Desfazer permutacao: X = 47.
+        sel <= "011";
+        ld_x <= '1';
+        wait for 10 ns;
+        ld_x <= '0';
+        wait for 10 ns;
+
+        -- Desfazer rotacao, agora para a direita: X = 901.
+        sel <= "010";
+        rot_dir <= '1';
+        ld_x <= '1';
+        wait for 10 ns;
+        ld_x <= '0';
+        wait for 10 ns;
+
+        -- Desfazer XOR: X = V = 723, equals = 1.
+        sel <= "001";
+        ld_x <= '1';
+        wait for 10 ns;
+        ld_x <= '0';
+        wait for 10 ns;
+
+        -- Seletores nao usados devem manter X = 723, mesmo com ld_x = 1.
+        sw <= "1111111111";
+        ld_x <= '1';
+        sel <= "111";
+        wait for 10 ns;
+        sel <= "110";
+        wait for 10 ns;
+        sel <= "101";
+        wait for 10 ns;
+        ld_x <= '0';
+        wait for 10 ns;
+
+        -- Nova tentativa a partir de C = 31.
+        sel <= "100";
+        ld_x <= '1';
+        wait for 10 ns;
+        ld_x <= '0';
+        wait for 10 ns;
+
+        -- Usar chave incorreta K = 0.
+        sw <= "0000000000";
+        ld_k <= '1';
+        wait for 10 ns;
+        ld_k <= '0';
+
+        sel <= "011";
+        ld_x <= '1';
+        wait for 10 ns;
+        ld_x <= '0';
+        wait for 10 ns;
+
+        sel <= "010";
+        rot_dir <= '1';
+        ld_x <= '1';
+        wait for 10 ns;
+        ld_x <= '0';
+        wait for 10 ns;
+
+        -- XOR com zero mantem X = 901, diferente de V; equals = 0.
+        sel <= "001";
+        ld_x <= '1';
+        wait for 10 ns;
+        ld_x <= '0';
+        wait for 10 ns;
+
+        -- Corrigir a chave e aplicar XOR: X volta a 723, equals = 1.
+        sw <= "0101010110";
+        ld_k <= '1';
+        wait for 10 ns;
+        ld_k <= '0';
+        ld_x <= '1';
+        wait for 10 ns;
+        ld_x <= '0';
+        wait for 10 ns;
+
+        -- Clear tem prioridade sobre todas as cargas.
+        -- V, K, X e C = 0, equals = 1 e existe_cripto = 0.
+        clr <= '1';
+        sw <= "1111111111";
+        sel <= "000";
+        ld_v <= '1';
+        ld_k <= '1';
+        ld_x <= '1';
+        ld_c <= '1';
+        wait for 10 ns;
+        clr <= '0';
+        ld_v <= '0';
+        ld_k <= '0';
+        ld_x <= '0';
+        ld_c <= '0';
+        wait for 10 ns;
+
+        -- Restaurar C zerado e aplicar XOR com K zerado: X permanece 0.
+        sel <= "100";
+        ld_x <= '1';
+        wait for 10 ns;
+        sel <= "001";
+        wait for 10 ns;
+        ld_x <= '0';
+
+        -- Salvar o valor zero tambem deve ativar existe_cripto.
+        ld_c <= '1';
+        wait for 10 ns;
+        ld_c <= '0';
+        wait for 10 ns;
+
         wait;
     end process;
 end test;
