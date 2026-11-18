@@ -39,7 +39,7 @@
 
 set_global_assignment -name FAMILY "MAX 10"
 set_global_assignment -name DEVICE 10M50DAF484C7G
-set_global_assignment -name TOP_LEVEL_ENTITY controller
+set_global_assignment -name TOP_LEVEL_ENTITY Criptografia
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 20.1.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "17:05:37  NOVEMBER 10, 2026"
 set_global_assignment -name LAST_QUARTUS_VERSION "18.1.0 Lite Edition"
@@ -63,11 +63,11 @@ set_global_assignment -name VHDL_FILE xor_maker.vhd
 set_global_assignment -name VHDL_FILE comparador.vhd
 set_global_assignment -name VHDL_FILE roller.vhd
 set_global_assignment -name VHDL_FILE permuter.vhd
+set_global_assignment -name VHDL_FILE registrador.vhd
 set_global_assignment -name VHDL_FILE datapath.vhd
 set_global_assignment -name VHDL_FILE clock_div.vhd
 set_global_assignment -name VHDL_FILE controller.vhd
 set_global_assignment -name VHDL_FILE Criptografia.vhd
-set_global_assignment -name VHDL_FILE registrador.vhd
 set_global_assignment -name VHDL_INPUT_VERSION VHDL_2008
 set_global_assignment -name VHDL_SHOW_LMF_MAPPING_MESSAGES OFF
 set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
