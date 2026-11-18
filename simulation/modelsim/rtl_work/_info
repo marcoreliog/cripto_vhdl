@@ -1,0 +1,90 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/User/Downloads/NEW_CRIPTO/cripto_vhdl/simulation/modelsim
+Econtroller
+Z1 w1794967547
+Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z5 8D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/controller.vhd
+Z6 FD:/User/Downloads/NEW_CRIPTO/cripto_vhdl/controller.vhd
+l0
+L6
+Vm>7CFzS6SXZ_CGn4I1gYC2
+!s100 ]Z9ZUIN[V2Jj`1^E>4I?R3
+Z7 OV;C;10.5b;63
+33
+Z8 !s110 1794969696
+!i10b 1
+Z9 !s108 1794969696.000000
+Z10 !s90 -reportprogress|300|-2008|-work|work|D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/controller.vhd|
+Z11 !s107 D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/controller.vhd|
+!i113 1
+Z12 o-2008 -work work
+Z13 tExplicit 1 CvgOpt 0
+Aarch_controller
+R2
+R3
+R4
+DEx4 work 10 controller 0 22 m>7CFzS6SXZ_CGn4I1gYC2
+l36
+L24
+VLjQM?6TTQi?HOnb4eg_2W0
+!s100 ^EP;7X`]D8]NON>]Re_@70
+R7
+33
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Etb_controller
+R1
+R3
+R4
+R0
+Z14 8D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_controller.vhd
+Z15 FD:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_controller.vhd
+l0
+L4
+VFmlm]MCH7b1m0N5jUK2OG2
+!s100 lJFMef`4AeFJzTg8^PKUh2
+R7
+33
+R8
+!i10b 1
+R9
+Z16 !s90 -reportprogress|300|-2008|-work|work|D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_controller.vhd|
+Z17 !s107 D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_controller.vhd|
+!i113 1
+R12
+R13
+Atest
+R3
+R4
+DEx4 work 13 tb_controller 0 22 Fmlm]MCH7b1m0N5jUK2OG2
+l30
+L7
+VI5YXMkaDGTadgb[K@_;AJ1
+!s100 R`X2]5I]Cz82J81D8k2ZD3
+R7
+33
+R8
+!i10b 1
+R9
+R16
+R17
+!i113 1
+R12
+R13

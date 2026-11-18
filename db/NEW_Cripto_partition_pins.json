@@ -1,0 +1,89 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "ld_x",
+					"strict" : false
+				},
+				{
+					"name" : "ld_k",
+					"strict" : false
+				},
+				{
+					"name" : "ld_v",
+					"strict" : false
+				},
+				{
+					"name" : "ld_c",
+					"strict" : false
+				},
+				{
+					"name" : "sel[0]",
+					"strict" : false
+				},
+				{
+					"name" : "sel[1]",
+					"strict" : false
+				},
+				{
+					"name" : "sel[2]",
+					"strict" : false
+				},
+				{
+					"name" : "rot_dir",
+					"strict" : false
+				},
+				{
+					"name" : "clr",
+					"strict" : false
+				},
+				{
+					"name" : "display[0]",
+					"strict" : false
+				},
+				{
+					"name" : "display[1]",
+					"strict" : false
+				},
+				{
+					"name" : "display[2]",
+					"strict" : false
+				},
+				{
+					"name" : "display[3]",
+					"strict" : false
+				},
+				{
+					"name" : "enter",
+					"strict" : false
+				},
+				{
+					"name" : "modo",
+					"strict" : false
+				},
+				{
+					"name" : "op[0]",
+					"strict" : false
+				},
+				{
+					"name" : "op[1]",
+					"strict" : false
+				},
+				{
+					"name" : "clock",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "existe_cripto",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

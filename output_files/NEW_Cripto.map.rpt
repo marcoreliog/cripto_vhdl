@@ -1,6 +1,6 @@
 Analysis & Synthesis report for NEW_Cripto
-Tue Nov 10 17:07:26 2026
-Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+Tue Nov 17 23:35:44 2026
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
 ---------------------
@@ -10,16 +10,24 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |controller|atual
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Post-Synthesis Netlist Statistics for Top Partition
+ 12. Elapsed Time Per Partition
+ 13. Analysis & Synthesis Messages
 
 
 
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2020  Intel Corporation. All rights reserved.
+Copyright (C) 2018  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
-and other software and tools, and any partner logic 
+and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
@@ -29,30 +37,29 @@ the Intel FPGA IP License Agreement, or other applicable license
 agreement, including, without limitation, that your use is for
 the sole purpose of programming logic devices manufactured by
 Intel and sold by Intel or its authorized distributors.  Please
-refer to the applicable agreement for further details, at
-https://fpgasoftware.intel.com/eula.
+refer to the applicable agreement for further details.
 
 
 
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Tue Nov 10 17:07:26 2026           ;
-; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
+; Analysis & Synthesis Status        ; Successful - Tue Nov 17 23:35:44 2026       ;
+; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; NEW_Cripto                                  ;
-; Top-level Entity Name              ; NEW_Cripto                                  ;
+; Top-level Entity Name              ; controller                                  ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; N/A until Partition Merge                   ;
-;     Total combinational functions  ; N/A until Partition Merge                   ;
-;     Dedicated logic registers      ; N/A until Partition Merge                   ;
-; Total registers                    ; N/A until Partition Merge                   ;
-; Total pins                         ; N/A until Partition Merge                   ;
-; Total virtual pins                 ; N/A until Partition Merge                   ;
-; Total memory bits                  ; N/A until Partition Merge                   ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                   ;
-; Total PLLs                         ; N/A until Partition Merge                   ;
-; UFM blocks                         ; N/A until Partition Merge                   ;
-; ADC blocks                         ; N/A until Partition Merge                   ;
+; Total logic elements               ; 38                                          ;
+;     Total combinational functions  ; 36                                          ;
+;     Dedicated logic registers      ; 16                                          ;
+; Total registers                    ; 16                                          ;
+; Total pins                         ; 21                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
 +------------------------------------+---------------------------------------------+
 
 
@@ -62,8 +69,10 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; 10M50DAF484C7G     ;                    ;
-; Top-level entity name                                            ; NEW_Cripto         ; NEW_Cripto         ;
+; Top-level entity name                                            ; controller         ; NEW_Cripto         ;
 ; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; VHDL Show LMF Mapping Messages                                   ; Off                ;                    ;
+; VHDL Version                                                     ; VHDL_2008          ; VHDL_1993          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
 ; Enable compact report table                                      ; Off                ; Off                ;
@@ -72,7 +81,6 @@ https://fpgasoftware.intel.com/eula.
 ; Preserve fewer node names                                        ; On                 ; On                 ;
 ; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
 ; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
-; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
 ; State Machine Processing                                         ; Auto               ; Auto               ;
 ; Safe State Machine                                               ; Off                ; Off                ;
 ; Extract Verilog State Machines                                   ; On                 ; On                 ;
@@ -148,14 +156,147 @@ https://fpgasoftware.intel.com/eula.
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
 ; Number detected on machine ; 8           ;
-; Maximum allowed            ; 6           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                   ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                            ; Library ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------+---------+
+; controller.vhd                   ; yes             ; User VHDL File  ; D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/controller.vhd ;         ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimated Total logic elements              ; 38          ;
+;                                             ;             ;
+; Total combinational functions               ; 36          ;
+; Logic element usage by number of LUT inputs ;             ;
+;     -- 4 input functions                    ; 26          ;
+;     -- 3 input functions                    ; 6           ;
+;     -- <=2 input functions                  ; 4           ;
+;                                             ;             ;
+; Logic elements by mode                      ;             ;
+;     -- normal mode                          ; 36          ;
+;     -- arithmetic mode                      ; 0           ;
+;                                             ;             ;
+; Total registers                             ; 16          ;
+;     -- Dedicated logic registers            ; 16          ;
+;     -- I/O registers                        ; 0           ;
+;                                             ;             ;
+; I/O pins                                    ; 21          ;
+;                                             ;             ;
+; Embedded Multiplier 9-bit elements          ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; enter~input ;
+; Maximum fan-out                             ; 22          ;
+; Total fan-out                               ; 212         ;
+; Average fan-out                             ; 2.26        ;
++---------------------------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
+; |controller                ; 36 (36)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 21   ; 0            ; 0          ; |controller         ; controller  ; work         ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |controller|atual                                                                                                                                                                                                                                 ;
++-----------------+--------------+--------------+-------------+-------------+-------------+----------------+-----------------+--------------+-------------+-------------+--------------+----------------+----------------+----------------+------------+------------+
+; Name            ; atual.RESULT ; atual.PERM_D ; atual.ROR_D ; atual.XOR_D ; atual.TRY_K ; atual.SEL_OP_D ; atual.ATTEMPT_D ; atual.SAVE_C ; atual.XOR_C ; atual.ROL_C ; atual.PERM_C ; atual.SEL_OP_C ; atual.INSERT_K ; atual.INSERT_V ; atual.MENU ; atual.INIT ;
++-----------------+--------------+--------------+-------------+-------------+-------------+----------------+-----------------+--------------+-------------+-------------+--------------+----------------+----------------+----------------+------------+------------+
+; atual.INIT      ; 0            ; 0            ; 0           ; 0           ; 0           ; 0              ; 0               ; 0            ; 0           ; 0           ; 0            ; 0              ; 0              ; 0              ; 0          ; 0          ;
+; atual.MENU      ; 0            ; 0            ; 0           ; 0           ; 0           ; 0              ; 0               ; 0            ; 0           ; 0           ; 0            ; 0              ; 0              ; 0              ; 1          ; 1          ;
+; atual.INSERT_V  ; 0            ; 0            ; 0           ; 0           ; 0           ; 0              ; 0               ; 0            ; 0           ; 0           ; 0            ; 0              ; 0              ; 1              ; 0          ; 1          ;
+; atual.INSERT_K  ; 0            ; 0            ; 0           ; 0           ; 0           ; 0              ; 0               ; 0            ; 0           ; 0           ; 0            ; 0              ; 1              ; 0              ; 0          ; 1          ;
+; atual.SEL_OP_C  ; 0            ; 0            ; 0           ; 0           ; 0           ; 0              ; 0               ; 0            ; 0           ; 0           ; 0            ; 1              ; 0              ; 0              ; 0          ; 1          ;
+; atual.PERM_C    ; 0            ; 0            ; 0           ; 0           ; 0           ; 0              ; 0               ; 0            ; 0           ; 0           ; 1            ; 0              ; 0              ; 0              ; 0          ; 1          ;
+; atual.ROL_C     ; 0            ; 0            ; 0           ; 0           ; 0           ; 0              ; 0               ; 0            ; 0           ; 1           ; 0            ; 0              ; 0              ; 0              ; 0          ; 1          ;
+; atual.XOR_C     ; 0            ; 0            ; 0           ; 0           ; 0           ; 0              ; 0               ; 0            ; 1           ; 0           ; 0            ; 0              ; 0              ; 0              ; 0          ; 1          ;
+; atual.SAVE_C    ; 0            ; 0            ; 0           ; 0           ; 0           ; 0              ; 0               ; 1            ; 0           ; 0           ; 0            ; 0              ; 0              ; 0              ; 0          ; 1          ;
+; atual.ATTEMPT_D ; 0            ; 0            ; 0           ; 0           ; 0           ; 0              ; 1               ; 0            ; 0           ; 0           ; 0            ; 0              ; 0              ; 0              ; 0          ; 1          ;
+; atual.SEL_OP_D  ; 0            ; 0            ; 0           ; 0           ; 0           ; 1              ; 0               ; 0            ; 0           ; 0           ; 0            ; 0              ; 0              ; 0              ; 0          ; 1          ;
+; atual.TRY_K     ; 0            ; 0            ; 0           ; 0           ; 1           ; 0              ; 0               ; 0            ; 0           ; 0           ; 0            ; 0              ; 0              ; 0              ; 0          ; 1          ;
+; atual.XOR_D     ; 0            ; 0            ; 0           ; 1           ; 0           ; 0              ; 0               ; 0            ; 0           ; 0           ; 0            ; 0              ; 0              ; 0              ; 0          ; 1          ;
+; atual.ROR_D     ; 0            ; 0            ; 1           ; 0           ; 0           ; 0              ; 0               ; 0            ; 0           ; 0           ; 0            ; 0              ; 0              ; 0              ; 0          ; 1          ;
+; atual.PERM_D    ; 0            ; 1            ; 0           ; 0           ; 0           ; 0              ; 0               ; 0            ; 0           ; 0           ; 0            ; 0              ; 0              ; 0              ; 0          ; 1          ;
+; atual.RESULT    ; 1            ; 0            ; 0           ; 0           ; 0           ; 0              ; 0               ; 0            ; 0           ; 0           ; 0            ; 0              ; 0              ; 0              ; 0          ; 1          ;
++-----------------+--------------+--------------+-------------+-------------+-------------+----------------+-----------------+--------------+-------------+-------------+--------------+----------------+----------------+----------------+------------+------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 16    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 16    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 1     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 9:1                ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |controller|Selector6      ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |controller|Selector3      ;
+; 12:1               ; 2 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |controller|Selector7      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 21                          ;
+; cycloneiii_ff         ; 16                          ;
+;     CLR               ; 15                          ;
+;     ENA CLR           ; 1                           ;
+; cycloneiii_lcell_comb ; 40                          ;
+;     normal            ; 40                          ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 4                           ;
+;         3 data inputs ; 6                           ;
+;         4 data inputs ; 26                          ;
+;                       ;                             ;
+; Max LUT depth         ; 3.00                        ;
+; Average LUT depth     ; 2.27                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
 
 
 +-------------------------------+
@@ -163,40 +304,60 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
-    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Tue Nov 10 17:07:21 2026
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Tue Nov 17 23:35:30 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off NEW_Cripto -c NEW_Cripto
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
-Info (12021): Found 0 design units, including 0 entities, in source file comparador.vhd
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file tb_datapath.vhd
+    Info (12022): Found design unit 1: tb_datapath-test File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_datapath.vhd Line: 7
+    Info (12023): Found entity 1: tb_datapath File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_datapath.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file tb_controller.vhd
+    Info (12022): Found design unit 1: tb_controller-test File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_controller.vhd Line: 7
+    Info (12023): Found entity 1: tb_controller File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_controller.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file hex7seg.vhd
+    Info (12022): Found design unit 1: hex7seg-rtl File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/hex7seg.vhd Line: 24
+    Info (12023): Found entity 1: hex7seg File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/hex7seg.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file xor_maker.vhd
+    Info (12022): Found design unit 1: XOR_maker-arch_xor File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/xor_maker.vhd Line: 12
+    Info (12023): Found entity 1: XOR_maker File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/xor_maker.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file comparador.vhd
+    Info (12022): Found design unit 1: comparator-arch File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/comparador.vhd Line: 17
+    Info (12023): Found entity 1: comparator File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/comparador.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file roller.vhd
-    Info (12022): Found design unit 1: roller-arch_roller File: /home/usuario/labSD26TercaNoite/NEW_CRIPTO/roller.vhd Line: 14
-    Info (12023): Found entity 1: roller File: /home/usuario/labSD26TercaNoite/NEW_CRIPTO/roller.vhd Line: 6
+    Info (12022): Found design unit 1: roller-arch_roller File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/roller.vhd Line: 14
+    Info (12023): Found entity 1: roller File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/roller.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file permuter.vhd
-    Info (12022): Found design unit 1: permuter-arch_permuter File: /home/usuario/labSD26TercaNoite/NEW_CRIPTO/permuter.vhd Line: 13
-    Info (12023): Found entity 1: permuter File: /home/usuario/labSD26TercaNoite/NEW_CRIPTO/permuter.vhd Line: 6
-Info (12021): Found 0 design units, including 0 entities, in source file datapath.vhd
-Info (12021): Found 2 design units, including 1 entities, in source file xor.vhd
-    Info (12022): Found design unit 1: XOR_cripto-arch_xor File: /home/usuario/labSD26TercaNoite/NEW_CRIPTO/xor.vhd Line: 12
-    Info (12023): Found entity 1: XOR_cripto File: /home/usuario/labSD26TercaNoite/NEW_CRIPTO/xor.vhd Line: 5
+    Info (12022): Found design unit 1: permuter-arch_permuter File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/permuter.vhd Line: 13
+    Info (12023): Found entity 1: permuter File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/permuter.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file datapath.vhd
+    Info (12022): Found design unit 1: datapath-arch_datapath File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/datapath.vhd Line: 20
+    Info (12023): Found entity 1: datapath File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/datapath.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file clock_div.vhd
-    Info (12022): Found design unit 1: clock_div-rtl File: /home/usuario/labSD26TercaNoite/NEW_CRIPTO/clock_div.vhd Line: 10
-    Info (12023): Found entity 1: clock_div File: /home/usuario/labSD26TercaNoite/NEW_CRIPTO/clock_div.vhd Line: 6
-Info (12021): Found 0 design units, including 0 entities, in source file incrementador.vhd
-Error (10500): VHDL syntax error at controller.vhd(55) near text "'";  expecting "(", or an identifier, or  unary operator File: /home/usuario/labSD26TercaNoite/NEW_CRIPTO/controller.vhd Line: 55
-Error (10500): VHDL syntax error at controller.vhd(56) near text "'";  expecting "(", or an identifier, or  unary operator File: /home/usuario/labSD26TercaNoite/NEW_CRIPTO/controller.vhd Line: 56
-Error (10500): VHDL syntax error at controller.vhd(61) near text "WHEN";  expecting "(", or "'", or "." File: /home/usuario/labSD26TercaNoite/NEW_CRIPTO/controller.vhd Line: 61
-Error (10522): VHDL Syntax error at controller.vhd(77): experienced unexpected end-of-file ;  expecting "end", or "(", or an identifier, or a sequential statement File: /home/usuario/labSD26TercaNoite/NEW_CRIPTO/controller.vhd Line: 77
-Info (12021): Found 0 design units, including 0 entities, in source file controller.vhd
-Info (12021): Found 1 design units, including 1 entities, in source file Criptografia.vhd
-    Info (12023): Found entity 1: temp1 File: /home/usuario/labSD26TercaNoite/NEW_CRIPTO/Criptografia.vhd Line: 5
+    Info (12022): Found design unit 1: clock_div-rtl File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/clock_div.vhd Line: 10
+    Info (12023): Found entity 1: clock_div File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/clock_div.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file controller.vhd
+    Info (12022): Found design unit 1: controller-arch_controller File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/controller.vhd Line: 24
+    Info (12023): Found entity 1: controller File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/controller.vhd Line: 6
+Info (12021): Found 1 design units, including 1 entities, in source file criptografia.vhd
+    Info (12023): Found entity 1: temp1 File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file registrador.vhd
-    Info (12022): Found design unit 1: registrador-rtl File: /home/usuario/labSD26TercaNoite/NEW_CRIPTO/registrador.vhd Line: 11
-    Info (12023): Found entity 1: registrador File: /home/usuario/labSD26TercaNoite/NEW_CRIPTO/registrador.vhd Line: 5
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 4 errors, 1 warning
-    Error: Peak virtual memory: 411 megabytes
-    Error: Processing ended: Tue Nov 10 17:07:26 2026
-    Error: Elapsed time: 00:00:05
-    Error: Total CPU time (on all processors): 00:00:13
+    Info (12022): Found design unit 1: registrador-rtl File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/registrador.vhd Line: 12
+    Info (12023): Found entity 1: registrador File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/registrador.vhd Line: 5
+Info (12127): Elaborating entity "controller" for the top level hierarchy
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "equals" File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/controller.vhd Line: 8
+Info (21057): Implemented 59 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 8 input pins
+    Info (21059): Implemented 13 output pins
+    Info (21061): Implemented 38 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 4787 megabytes
+    Info: Processing ended: Tue Nov 17 23:35:44 2026
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:25
 
 

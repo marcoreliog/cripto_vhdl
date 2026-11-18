@@ -1,0 +1,19 @@
+
+State Machine - |controller|atual
+Name atual.RESULT atual.PERM_D atual.ROR_D atual.XOR_D atual.TRY_K atual.SEL_OP_D atual.ATTEMPT_D atual.SAVE_C atual.XOR_C atual.ROL_C atual.PERM_C atual.SEL_OP_C atual.INSERT_K atual.INSERT_V atual.MENU atual.INIT 
+atual.INIT 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+atual.MENU 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+atual.INSERT_V 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+atual.INSERT_K 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+atual.SEL_OP_C 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+atual.PERM_C 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+atual.ROL_C 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+atual.XOR_C 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+atual.SAVE_C 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+atual.ATTEMPT_D 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+atual.SEL_OP_D 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+atual.TRY_K 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+atual.XOR_D 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+atual.ROR_D 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+atual.PERM_D 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+atual.RESULT 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
