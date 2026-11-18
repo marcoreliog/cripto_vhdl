@@ -7,7 +7,7 @@ use ieee.numeric_std.all;
 
 
 entity clock_div is
- generic(DIVISOR : positive := 50000);
+ generic(DIVISOR : positive := 10000000);
  port(clk, reset : in std_logic; 
 		tick : out std_logic);
 end entity;

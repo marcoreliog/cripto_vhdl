@@ -8,8 +8,7 @@ end entity tb_Criptografia;
 architecture test of tb_Criptografia is
     signal base_clock : std_logic := '0';
     signal enter : std_logic := '1';
-    signal reset, modo : std_logic := '0';
-    signal op : std_logic_vector(1 downto 0) := "00";
+    signal reset : std_logic := '0';
     signal sw : std_logic_vector(9 downto 0) := (others => '0');
     signal hex5, hex4, hex3, hex2, hex1, hex0 : std_logic_vector(6 downto 0);
 
@@ -29,8 +28,6 @@ begin
             base_clock => base_clock,
             enter => enter,
             reset => reset,
-            modo => modo,
-            op => op,
             sw => sw,
             hex5 => hex5,
             hex4 => hex4,
@@ -72,7 +69,7 @@ begin
             constant estado_operacao, estado_selecao : in natural
         ) is
         begin
-            op <= codigo;
+            sw(1 downto 0) <= codigo;
             confirmar(estado_operacao);
             passo;
             conferir_estado(estado_selecao);
@@ -80,7 +77,7 @@ begin
 
         procedure finalizar(constant esperado : in std_logic_vector(41 downto 0)) is
         begin
-            op <= "00";
+            sw(1 downto 0)<= "00";
             enter <= '0';
             passo;
             enter <= '1';
@@ -97,11 +94,11 @@ begin
         reset <= '1';
         passo;
         conferir_estado(1);
-        modo <= '1';
+        sw(0) <= '1';
         confirmar(1);
 
         -- Cifrar 723 com chave 342: XOR, ROL e permutacao; salvar 31.
-        modo <= '0';
+        sw(0) <= '0';
         confirmar(2);
         sw <= "1011010011";
         confirmar(3);
@@ -110,19 +107,19 @@ begin
         operacao("01", 7, 4);
         operacao("10", 6, 4);
         operacao("11", 5, 4);
-        op <= "00";
+        sw(1 downto 0)<= "00";
         confirmar(8);
         passo;
         conferir_estado(1);
 
         -- Decifrar com chave errada deve mostrar ERRO.
-        modo <= '1';
+        sw(0) <= '1';
         confirmar(9);
         passo;
         conferir_estado(10);
         operacao("11", 14, 10);
         operacao("10", 13, 10);
-        op <= "01";
+        sw(1 downto 0)<= "01";
         confirmar(11);
         passo;
         conferir_estado(11);
@@ -139,7 +136,7 @@ begin
         conferir_estado(10);
         operacao("11", 14, 10);
         operacao("10", 13, 10);
-        op <= "01";
+        sw(1 downto 0)<= "01";
         confirmar(11);
         sw <= "0101010110";
         confirmar(12);
@@ -163,16 +160,16 @@ begin
         confirmar(1);
 
         -- Um cifrado igual a zero tambem deve ser considerado salvo.
-        modo <= '0';
+        sw(0) <= '0';
         confirmar(2);
         sw <= "0000000000";
         confirmar(3);
         confirmar(4);
-        op <= "00";
+        sw(1 downto 0)<= "00";
         confirmar(8);
         passo;
         conferir_estado(1);
-        modo <= '1';
+        sw(0) <= '1';
         confirmar(9);
         passo;
         conferir_estado(10);

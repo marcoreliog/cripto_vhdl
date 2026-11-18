@@ -78,7 +78,7 @@ begin
 	clock_div: entity work.clock_div
 		port map (
 			clk => sbase_Clock,
-			reset => sreset,
+			reset => not sreset,
 			tick => sclock
 		);
 

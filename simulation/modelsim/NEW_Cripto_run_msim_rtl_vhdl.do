@@ -5,13 +5,22 @@ if {[file exists rtl_work]} {
 vlib rtl_work
 vmap work rtl_work
 
+vcom -2008 -work work {D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/hex7seg.vhd}
+vcom -2008 -work work {D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/xor_maker.vhd}
+vcom -2008 -work work {D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/comparador.vhd}
+vcom -2008 -work work {D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/roller.vhd}
+vcom -2008 -work work {D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/permuter.vhd}
+vcom -2008 -work work {D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/registrador.vhd}
+vcom -2008 -work work {D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/clock_div.vhd}
 vcom -2008 -work work {D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/controller.vhd}
+vcom -2008 -work work {D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/datapath.vhd}
+vcom -2008 -work work {D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd}
 
-vcom -2008 -work work {D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_controller.vhd}
+vcom -2008 -work work {D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_Criptografia.vhd}
 
-vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs="+acc"  tb_controller
+vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs="+acc"  tb_Criptografia
 
 add wave *
 view structure
 view signals
-run 500 ns
+run 1000 ns
