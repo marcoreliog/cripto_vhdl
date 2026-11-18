@@ -6,10 +6,10 @@ use ieee.numeric_std.all;
 
 entity comparator is
     generic(
-        data_width : natural := 10
+        N : natural := 8
     );
     port(
-        a, b : in std_logic_vector(data_width-1 downto 0);
+        a, b : in std_logic_vector(N-1 downto 0);
         gt, eq, lt : out std_logic
     );
 end comparator;

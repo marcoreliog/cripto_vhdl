@@ -16,7 +16,7 @@ entity controller is
 		
 		ld_x, ld_k, ld_v, ld_c : out std_logic;
 		sel : out std_logic_vector(2 downto 0);
-		rot_dir, clear : out std_logic;
+		rot_dir, clr : out std_logic;
 		display : out std_logic_vector(3 downto 0) := "0000" --controle do display
 	);
 end entity;
@@ -34,11 +34,11 @@ architecture arch_controller of controller is
 	
 	
 begin
-	 update : process (clk, reset)
+	 update : process (clock, reset)
     begin
 			if reset = '0' then
             atual <= INIT;
-			elsif rising_edge(clk) then
+			elsif rising_edge(clock) then
 				atual <= prox;
   			end if;
     end process;
@@ -51,43 +51,48 @@ begin
 	 	   ld_x <= '0';
 	  	   ld_c <= '0';
 		   rot_dir <= '0';
-		   clear <= '0';
-			compare <= '0';
+		   clr <= '0';
 		   sel <= "000";
 		   estado <= "0000";
 			
 			
 		   case atual is
+			
 			WHEN INIT =>
-				clear <= '1';
+				clr <= '1';
 				existe_cripto <= '0';
 				prox <= MENU;
+				
 			WHEN MENU => 
 				if enter = '0' THEN
 					if modo = '0' THEN
-						clear <= '1';
+						clr <= '1';
 						prox <= INSERT_V;
 					elsif modo = '1' AND existe_cripto = '1' THEN 
 						prox <= ATTEMPT_D;
 					end if;
 				end if;
+				
 			WHEN INSERT_V => 
 				if enter = '0' THEN
-					ld_x = '1';
-					ld_v = '1';
+					ld_x <= '1';
+					ld_v <= '1';
+					sel <= "000";
 					prox <= INSERT_K;
 				end if;
 			WHEN INSERT_K =>
 				if enter = '0' THEN
-					ld_k = '1';
+					ld_k <= '1';
+					sel <= "000";
 					prox <= SEL_OP_C;
 				end if;
+				
 			WHEN SEL_OP_C =>
 				if enter = '0' AND op = "00" THEN	
 					prox <= SAVE_C;
 				end if;	
 				if enter = '0' AND op = "01" THEN
-					prox <= TRY_K;
+					prox <= XOR_C;
 				end if;
 				if enter = '0' AND op = "10" THEN
 					prox <= ROL_C;
@@ -95,19 +100,21 @@ begin
 				if enter = '0' AND op = "11" THEN
 					prox <= PERM_C;
 				end if;
-			WHEN PERM_C =>
+
+			WHEN XOR_C =>
 				ld_x <= '1';
-				sel <= "011";
+				sel <= "001";
 				prox <= SEL_OP_C;
 			WHEN ROL_C =>
 				ld_x <= '1';
 				sel <= "010";
 				rot_dir <= '0';
 				prox <= SEL_OP_C;
-			WHEN XOR_C =>
+			WHEN PERM_C =>
 				ld_x <= '1';
-				sel <= "001";
+				sel <= "011";
 				prox <= SEL_OP_C;
+			
 			WHEN SAVE_C =>
 				ld_c <= '1';
 				prox <= MENU;
@@ -116,6 +123,7 @@ begin
 				ld_x <= '1';
 				sel <= "100";
 				prox <= SEL_OP_D;
+				
 			WHEN SEL_OP_D =>
 				if enter = '0' AND op = "00" THEN	
 					prox <= RESULT;
@@ -129,6 +137,7 @@ begin
 				if enter = '0' AND op = "11" THEN
 					prox <= PERM_D;
 				end if;
+				
 			WHEN TRY_K =>
 				if enter = '0' THEN
 					ld_k = '1';
@@ -147,6 +156,7 @@ begin
 				ld_x <= '1';
 				sel <= "011";
 				prox <= SEL_OP_D;
+				
 			WHEN RESULT =>
 				if enter = '0' THEN	--estado parado para exibir o resultado
 					prox = MENU;
@@ -172,8 +182,8 @@ begin
 		 "1010" WHEN SEL_OP_D,
 		 "1011" WHEN TRY_K,
 		 "1100" WHEN XOR_D,
-		 "1101" WHEN PERM_D,
-		 "1110" WHEN ROR_D,
+		 "1101" WHEN ROR_D,
+		 "1110" WHEN PERM_D,
 		 "1111" WHEN RESULT;
 		 
 end arch_controller;
