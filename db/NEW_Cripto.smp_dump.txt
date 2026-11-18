@@ -1,5 +1,5 @@
 
-State Machine - |controller|atual
+State Machine - |Criptografia|controller:controller|atual
 Name atual.RESULT atual.PERM_D atual.ROR_D atual.XOR_D atual.TRY_K atual.SEL_OP_D atual.ATTEMPT_D atual.SAVE_C atual.XOR_C atual.ROL_C atual.PERM_C atual.SEL_OP_C atual.INSERT_K atual.INSERT_V atual.MENU atual.INIT 
 atual.INIT 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 atual.MENU 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 

@@ -5,8 +5,7 @@ use ieee.std_logic_1164.all;
 entity Criptografia is
 	port (
 		base_clock : in std_logic;
-		enter, reset, modo : in std_logic;
-		op : in std_logic_vector(1 downto 0);
+		enter, reset : in std_logic;
 		sw : in std_logic_vector(9 downto 0);
 
 		hex5, hex4, hex3, hex2, hex1, hex0 : out std_logic_vector(6 downto 0)
@@ -15,7 +14,7 @@ end entity Criptografia;
 
 architecture rtl of Criptografia is
 	-- Entradas externas. Enter e reset sao ativos em '0'.
-	signal sclock, senter, sreset, smodo : std_logic;
+	signal sclock, sbase_Clock, senter, sreset, smodo : std_logic;
 	signal sop : std_logic_vector(1 downto 0);
 	signal ssw : std_logic_vector(9 downto 0);
 
@@ -75,12 +74,19 @@ begin
 			hex1 => hex1,
 			hex0 => hex0
 		);
+		
+	clock_div: entity work.clock_div
+		port map (
+			clk => sbase_Clock,
+			reset => sreset,
+			tick => sclock
+		);
 
 	-- Controladora e datapath usam o mesmo clock.
-	sclock <= base_clock;
+	sbase_clock <= base_clock;
 	senter <= enter;
 	sreset <= reset;
-	smodo <= modo;
-	sop <= op;
+	smodo <= sw(0);
+	sop <= sw(1 downto 0);
 	ssw <= sw;
 end architecture rtl;
