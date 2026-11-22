@@ -7,6 +7,8 @@ entity Criptografia is
 		base_clock : in std_logic;
 		enter, reset : in std_logic;
 		sw : in std_logic_vector(9 downto 0);
+		
+		leds : out std_logic_vector(9 downto 0);
 
 		hex5, hex4, hex3, hex2, hex1, hex0 : out std_logic_vector(6 downto 0)
 	);
@@ -38,7 +40,8 @@ begin
 			sw => ssw,
 			sel => ssel,
 			equals => sequals,
-			existe_cripto => sexiste_cripto
+			existe_cripto => sexiste_cripto,
+			leds => leds
 		);
 
 	controller: entity work.controller

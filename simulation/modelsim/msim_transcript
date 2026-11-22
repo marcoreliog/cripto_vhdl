@@ -12,29 +12,29 @@
 # 
 # vcom -2008 -work work {D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/hex7seg.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:08:58 on Nov 18,2026
+# Start time: 17:16:39 on Nov 22,2026
 # vcom -reportprogress 300 -2008 -work work D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/hex7seg.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity hex7seg
 # -- Compiling architecture rtl of hex7seg
-# End time: 16:08:58 on Nov 18,2026, Elapsed time: 0:00:00
+# End time: 17:16:40 on Nov 22,2026, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vcom -2008 -work work {D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/xor_maker.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:08:58 on Nov 18,2026
+# Start time: 17:16:40 on Nov 22,2026
 # vcom -reportprogress 300 -2008 -work work D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/xor_maker.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity XOR_maker
 # -- Compiling architecture arch_xor of XOR_maker
-# End time: 16:08:58 on Nov 18,2026, Elapsed time: 0:00:00
+# End time: 17:16:40 on Nov 22,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -2008 -work work {D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/comparador.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:08:58 on Nov 18,2026
+# Start time: 17:16:40 on Nov 22,2026
 # vcom -reportprogress 300 -2008 -work work D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/comparador.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -42,33 +42,33 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity comparator
 # -- Compiling architecture arch of comparator
-# End time: 16:08:58 on Nov 18,2026, Elapsed time: 0:00:00
+# End time: 17:16:40 on Nov 22,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -2008 -work work {D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/roller.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:08:58 on Nov 18,2026
+# Start time: 17:16:40 on Nov 22,2026
 # vcom -reportprogress 300 -2008 -work work D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/roller.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity roller
 # -- Compiling architecture arch_roller of roller
-# End time: 16:08:58 on Nov 18,2026, Elapsed time: 0:00:00
+# End time: 17:16:40 on Nov 22,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -2008 -work work {D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/permuter.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:08:58 on Nov 18,2026
+# Start time: 17:16:40 on Nov 22,2026
 # vcom -reportprogress 300 -2008 -work work D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/permuter.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity permuter
 # -- Compiling architecture arch_permuter of permuter
-# End time: 16:08:58 on Nov 18,2026, Elapsed time: 0:00:00
+# End time: 17:16:40 on Nov 22,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -2008 -work work {D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/registrador.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:08:58 on Nov 18,2026
+# Start time: 17:16:40 on Nov 22,2026
 # vcom -reportprogress 300 -2008 -work work D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/registrador.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -76,11 +76,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity registrador
 # -- Compiling architecture rtl of registrador
-# End time: 16:08:58 on Nov 18,2026, Elapsed time: 0:00:00
+# End time: 17:16:41 on Nov 22,2026, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vcom -2008 -work work {D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/clock_div.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:08:58 on Nov 18,2026
+# Start time: 17:16:41 on Nov 22,2026
 # vcom -reportprogress 300 -2008 -work work D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/clock_div.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -88,11 +88,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity clock_div
 # -- Compiling architecture rtl of clock_div
-# End time: 16:08:58 on Nov 18,2026, Elapsed time: 0:00:00
+# End time: 17:16:41 on Nov 22,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -2008 -work work {D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/controller.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:08:58 on Nov 18,2026
+# Start time: 17:16:41 on Nov 22,2026
 # vcom -reportprogress 300 -2008 -work work D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/controller.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -100,11 +100,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity controller
 # -- Compiling architecture arch_controller of controller
-# End time: 16:08:58 on Nov 18,2026, Elapsed time: 0:00:00
+# End time: 17:16:41 on Nov 22,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -2008 -work work {D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/datapath.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:08:58 on Nov 18,2026
+# Start time: 17:16:41 on Nov 22,2026
 # vcom -reportprogress 300 -2008 -work work D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/datapath.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -117,11 +117,11 @@
 # -- Loading entity roller
 # -- Loading entity permuter
 # -- Loading entity XOR_maker
-# End time: 16:08:58 on Nov 18,2026, Elapsed time: 0:00:00
+# End time: 17:16:41 on Nov 22,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -2008 -work work {D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:08:58 on Nov 18,2026
+# Start time: 17:16:41 on Nov 22,2026
 # vcom -reportprogress 300 -2008 -work work D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -133,12 +133,12 @@
 # -- Loading entity controller
 # -- Loading entity hex7seg
 # -- Loading entity clock_div
-# End time: 16:08:58 on Nov 18,2026, Elapsed time: 0:00:00
+# End time: 17:16:41 on Nov 22,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vcom -2008 -work work {D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_Criptografia.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:08:59 on Nov 18,2026
+# Start time: 17:16:41 on Nov 22,2026
 # vcom -reportprogress 300 -2008 -work work D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_Criptografia.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -147,12 +147,12 @@
 # -- Compiling entity tb_Criptografia
 # -- Compiling architecture test of tb_Criptografia
 # -- Loading entity Criptografia
-# End time: 16:08:59 on Nov 18,2026, Elapsed time: 0:00:00
+# End time: 17:16:41 on Nov 22,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs="+acc"  tb_Criptografia
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs=""+acc"" tb_Criptografia 
-# Start time: 16:08:59 on Nov 18,2026
+# Start time: 17:16:43 on Nov 22,2026
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -179,3 +179,5 @@
 # ** Failure: Display incorreto no estado 1
 #    Time: 16 ns  Iteration: 0  Process: /tb_criptografia/stimulus File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_Criptografia.vhd
 # Break in Subprogram conferir_estado at D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_Criptografia.vhd line 54
+# End time: 17:18:02 on Nov 22,2026, Elapsed time: 0:01:19
+# Errors: 0, Warnings: 0

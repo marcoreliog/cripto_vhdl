@@ -12,8 +12,9 @@ entity datapath is
 	
 	sel : in std_logic_Vector(2 downto 0); -- seletor de mux
 	
-	equals, existe_cripto : out std_logic --flags para mudança de estado
+	leds : out std_logic_vector(9 downto 0);
 	
+	equals, existe_cripto : out std_logic --flags para mudança de estado
 	);
 end datapath;
 
@@ -93,6 +94,8 @@ begin
 			B => val_k,
 			X => out_xor
 		);
+		
+	leds <= val_x;
 	
 	WITH sel SELECT
 		mux_x <=

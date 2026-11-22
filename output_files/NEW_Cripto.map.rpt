@@ -1,5 +1,5 @@
 Analysis & Synthesis report for NEW_Cripto
-Wed Nov 18 16:08:17 2026
+Sun Nov 22 16:53:02 2026
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -55,16 +55,16 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Nov 18 16:08:17 2026       ;
+; Analysis & Synthesis Status        ; Successful - Sun Nov 22 16:53:02 2026       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; NEW_Cripto                                  ;
 ; Top-level Entity Name              ; Criptografia                                ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 180                                         ;
-;     Total combinational functions  ; 168                                         ;
-;     Dedicated logic registers      ; 74                                          ;
-; Total registers                    ; 74                                          ;
-; Total pins                         ; 55                                          ;
+; Total logic elements               ; 190                                         ;
+;     Total combinational functions  ; 178                                         ;
+;     Dedicated logic registers      ; 82                                          ;
+; Total registers                    ; 82                                          ;
+; Total pins                         ; 65                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -202,30 +202,30 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+--------------------------+
 ; Resource                                    ; Usage                    ;
 +---------------------------------------------+--------------------------+
-; Estimated Total logic elements              ; 180                      ;
+; Estimated Total logic elements              ; 190                      ;
 ;                                             ;                          ;
-; Total combinational functions               ; 168                      ;
+; Total combinational functions               ; 178                      ;
 ; Logic element usage by number of LUT inputs ;                          ;
-;     -- 4 input functions                    ; 82                       ;
+;     -- 4 input functions                    ; 86                       ;
 ;     -- 3 input functions                    ; 23                       ;
-;     -- <=2 input functions                  ; 63                       ;
+;     -- <=2 input functions                  ; 69                       ;
 ;                                             ;                          ;
 ; Logic elements by mode                      ;                          ;
-;     -- normal mode                          ; 153                      ;
-;     -- arithmetic mode                      ; 15                       ;
+;     -- normal mode                          ; 155                      ;
+;     -- arithmetic mode                      ; 23                       ;
 ;                                             ;                          ;
-; Total registers                             ; 74                       ;
-;     -- Dedicated logic registers            ; 74                       ;
+; Total registers                             ; 82                       ;
+;     -- Dedicated logic registers            ; 82                       ;
 ;     -- I/O registers                        ; 0                        ;
 ;                                             ;                          ;
-; I/O pins                                    ; 55                       ;
+; I/O pins                                    ; 65                       ;
 ;                                             ;                          ;
 ; Embedded Multiplier 9-bit elements          ; 0                        ;
 ;                                             ;                          ;
 ; Maximum fan-out node                        ; clock_div:clock_div|tick ;
 ; Maximum fan-out                             ; 57                       ;
-; Total fan-out                               ; 859                      ;
-; Average fan-out                             ; 2.44                     ;
+; Total fan-out                               ; 931                      ;
+; Average fan-out                             ; 2.39                     ;
 +---------------------------------------------+--------------------------+
 
 
@@ -234,8 +234,8 @@ refer to the applicable agreement for further details.
 +-----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------+--------------+--------------+
 ; Compilation Hierarchy Node  ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                 ; Entity Name  ; Library Name ;
 +-----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------+--------------+--------------+
-; |Criptografia               ; 168 (0)             ; 74 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 55   ; 0            ; 0          ; |Criptografia                                       ; Criptografia ; work         ;
-;    |clock_div:clock_div|    ; 23 (23)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Criptografia|clock_div:clock_div                   ; clock_div    ; work         ;
+; |Criptografia               ; 178 (0)             ; 82 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 65   ; 0            ; 0          ; |Criptografia                                       ; Criptografia ; work         ;
+;    |clock_div:clock_div|    ; 33 (33)             ; 25 (25)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Criptografia|clock_div:clock_div                   ; clock_div    ; work         ;
 ;    |controller:controller|  ; 45 (45)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Criptografia|controller:controller                 ; controller   ; work         ;
 ;    |datapath:datapath|      ; 79 (0)              ; 41 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Criptografia|datapath:datapath                     ; datapath     ; work         ;
 ;       |XOR_maker:xor_maker| ; 10 (10)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Criptografia|datapath:datapath|XOR_maker:xor_maker ; XOR_maker    ; work         ;
@@ -279,8 +279,8 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 74    ;
-; Number of registers using Synchronous Clear  ; 26    ;
+; Total registers                              ; 82    ;
+; Number of registers using Synchronous Clear  ; 34    ;
 ; Number of registers using Synchronous Load   ; 10    ;
 ; Number of registers using Asynchronous Clear ; 16    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
@@ -294,15 +294,15 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |Criptografia|datapath:datapath|registrador:reg_c|Q[3] ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |Criptografia|datapath:datapath|registrador:reg_c|Q[5] ;
 ; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |Criptografia|datapath:datapath|registrador:reg_v|Q[3] ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |Criptografia|clock_div:clock_div|n[8]                 ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |Criptografia|datapath:datapath|registrador:reg_k|Q[0] ;
-; 11:1               ; 10 bits   ; 70 LEs        ; 40 LEs               ; 30 LEs                 ; Yes        ; |Criptografia|datapath:datapath|registrador:reg_x|Q[8] ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |Criptografia|controller:controller|Selector16         ;
+; 3:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |Criptografia|clock_div:clock_div|n[8]                 ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |Criptografia|datapath:datapath|registrador:reg_k|Q[1] ;
+; 11:1               ; 10 bits   ; 70 LEs        ; 40 LEs               ; 30 LEs                 ; Yes        ; |Criptografia|datapath:datapath|registrador:reg_x|Q[0] ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |Criptografia|controller:controller|Selector9          ;
 ; 9:1                ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |Criptografia|controller:controller|Selector15         ;
 ; 9:1                ; 2 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |Criptografia|controller:controller|Selector10         ;
-; 12:1               ; 2 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |Criptografia|controller:controller|Selector7          ;
+; 12:1               ; 2 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |Criptografia|controller:controller|Selector14         ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
 
 
@@ -368,11 +368,11 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 +------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: clock_div:clock_div ;
-+----------------+-------+-----------------------------------------+
-; Parameter Name ; Value ; Type                                    ;
-+----------------+-------+-----------------------------------------+
-; divisor        ; 50000 ; Signed Integer                          ;
-+----------------+-------+-----------------------------------------+
++----------------+----------+--------------------------------------+
+; Parameter Name ; Value    ; Type                                 ;
++----------------+----------+--------------------------------------+
+; divisor        ; 10000000 ; Signed Integer                       ;
++----------------+----------+--------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -418,26 +418,26 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 55                          ;
-; cycloneiii_ff         ; 74                          ;
+; boundary_port         ; 65                          ;
+; cycloneiii_ff         ; 82                          ;
 ;     CLR               ; 15                          ;
 ;     ENA               ; 30                          ;
 ;     ENA CLR           ; 1                           ;
 ;     ENA SCLR SLD      ; 10                          ;
-;     SCLR              ; 16                          ;
+;     SCLR              ; 24                          ;
 ;     plain             ; 2                           ;
-; cycloneiii_lcell_comb ; 179                         ;
-;     arith             ; 15                          ;
-;         2 data inputs ; 15                          ;
-;     normal            ; 164                         ;
+; cycloneiii_lcell_comb ; 189                         ;
+;     arith             ; 23                          ;
+;         2 data inputs ; 23                          ;
+;     normal            ; 166                         ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 11                          ;
-;         2 data inputs ; 47                          ;
+;         2 data inputs ; 45                          ;
 ;         3 data inputs ; 23                          ;
-;         4 data inputs ; 82                          ;
+;         4 data inputs ; 86                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 6.00                        ;
-; Average LUT depth     ; 3.48                        ;
+; Average LUT depth     ; 3.46                        ;
 +-----------------------+-----------------------------+
 
 
@@ -446,7 +446,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -456,7 +456,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Wed Nov 18 16:08:04 2026
+    Info: Processing started: Sun Nov 22 16:52:44 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off NEW_Cripto -c NEW_Cripto
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -488,7 +488,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file registr
     Info (12022): Found design unit 1: registrador-rtl File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/registrador.vhd Line: 12
     Info (12023): Found entity 1: registrador File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/registrador.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file datapath.vhd
-    Info (12022): Found design unit 1: datapath-arch_datapath File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/datapath.vhd Line: 20
+    Info (12022): Found design unit 1: datapath-arch_datapath File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/datapath.vhd Line: 21
     Info (12023): Found entity 1: datapath File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/datapath.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file clock_div.vhd
     Info (12022): Found design unit 1: clock_div-rtl File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/clock_div.vhd Line: 17
@@ -497,40 +497,40 @@ Info (12021): Found 2 design units, including 1 entities, in source file control
     Info (12022): Found design unit 1: controller-arch_controller File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/controller.vhd Line: 24
     Info (12023): Found entity 1: controller File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/controller.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file criptografia.vhd
-    Info (12022): Found design unit 1: Criptografia-rtl File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 15
+    Info (12022): Found design unit 1: Criptografia-rtl File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 17
     Info (12023): Found entity 1: Criptografia File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 5
 Info (12127): Elaborating entity "Criptografia" for the top level hierarchy
-Info (12128): Elaborating entity "datapath" for hierarchy "datapath:datapath" File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 29
-Info (12128): Elaborating entity "registrador" for hierarchy "datapath:datapath|registrador:reg_v" File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/datapath.vhd Line: 23
-Info (12128): Elaborating entity "comparator" for hierarchy "datapath:datapath|comparator:comp" File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/datapath.vhd Line: 67
-Info (12128): Elaborating entity "roller" for hierarchy "datapath:datapath|roller:roller" File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/datapath.vhd Line: 77
-Info (12128): Elaborating entity "permuter" for hierarchy "datapath:datapath|permuter:perm" File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/datapath.vhd Line: 84
-Info (12128): Elaborating entity "XOR_maker" for hierarchy "datapath:datapath|XOR_maker:xor_maker" File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/datapath.vhd Line: 90
-Info (12128): Elaborating entity "controller" for hierarchy "controller:controller" File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 44
-Info (12128): Elaborating entity "hex7seg" for hierarchy "hex7seg:display" File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 63
-Info (12128): Elaborating entity "clock_div" for hierarchy "clock_div:clock_div" File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 78
+Info (12128): Elaborating entity "datapath" for hierarchy "datapath:datapath" File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 31
+Info (12128): Elaborating entity "registrador" for hierarchy "datapath:datapath|registrador:reg_v" File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/datapath.vhd Line: 24
+Info (12128): Elaborating entity "comparator" for hierarchy "datapath:datapath|comparator:comp" File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/datapath.vhd Line: 68
+Info (12128): Elaborating entity "roller" for hierarchy "datapath:datapath|roller:roller" File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/datapath.vhd Line: 78
+Info (12128): Elaborating entity "permuter" for hierarchy "datapath:datapath|permuter:perm" File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/datapath.vhd Line: 85
+Info (12128): Elaborating entity "XOR_maker" for hierarchy "datapath:datapath|XOR_maker:xor_maker" File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/datapath.vhd Line: 91
+Info (12128): Elaborating entity "controller" for hierarchy "controller:controller" File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 47
+Info (12128): Elaborating entity "hex7seg" for hierarchy "hex7seg:display" File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 66
+Info (12128): Elaborating entity "clock_div" for hierarchy "clock_div:clock_div" File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 81
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "hex5[3]" is stuck at VCC File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 11
-    Warning (13410): Pin "hex4[1]" is stuck at VCC File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 11
-    Warning (13410): Pin "hex4[2]" is stuck at VCC File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 11
-    Warning (13410): Pin "hex3[1]" is stuck at VCC File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 11
-    Warning (13410): Pin "hex3[2]" is stuck at VCC File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 11
-    Warning (13410): Pin "hex2[0]" is stuck at VCC File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 11
-    Warning (13410): Pin "hex2[1]" is stuck at VCC File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 11
-    Warning (13410): Pin "hex2[2]" is stuck at VCC File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 11
-    Warning (13410): Pin "hex2[3]" is stuck at VCC File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 11
-    Warning (13410): Pin "hex2[5]" is stuck at VCC File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 11
+    Warning (13410): Pin "hex5[3]" is stuck at VCC File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 13
+    Warning (13410): Pin "hex4[1]" is stuck at VCC File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 13
+    Warning (13410): Pin "hex4[2]" is stuck at VCC File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 13
+    Warning (13410): Pin "hex3[1]" is stuck at VCC File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 13
+    Warning (13410): Pin "hex3[2]" is stuck at VCC File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 13
+    Warning (13410): Pin "hex2[0]" is stuck at VCC File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 13
+    Warning (13410): Pin "hex2[1]" is stuck at VCC File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 13
+    Warning (13410): Pin "hex2[2]" is stuck at VCC File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 13
+    Warning (13410): Pin "hex2[3]" is stuck at VCC File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 13
+    Warning (13410): Pin "hex2[5]" is stuck at VCC File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 13
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 245 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 265 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 13 input pins
-    Info (21059): Implemented 42 output pins
-    Info (21061): Implemented 190 logic cells
+    Info (21059): Implemented 52 output pins
+    Info (21061): Implemented 200 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 12 warnings
-    Info: Peak virtual memory: 4788 megabytes
-    Info: Processing ended: Wed Nov 18 16:08:17 2026
-    Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:23
+    Info: Peak virtual memory: 4800 megabytes
+    Info: Processing ended: Sun Nov 22 16:53:02 2026
+    Info: Elapsed time: 00:00:18
+    Info: Total CPU time (on all processors): 00:00:22
 
 

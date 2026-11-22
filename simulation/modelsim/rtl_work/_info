@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 dD:/User/Downloads/NEW_CRIPTO/cripto_vhdl/simulation/modelsim
 Eclock_div
-Z1 w1795024891
+Z1 w1795031767
 Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
 Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
@@ -18,13 +18,13 @@ Z5 8D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/clock_div.vhd
 Z6 FD:/User/Downloads/NEW_CRIPTO/cripto_vhdl/clock_div.vhd
 l0
 L9
-V1KIe8=TNERFeOFTMdGOhc2
-!s100 PoKm5UcPbmIz[<oz;b[901
+V6_BoDUWgo3oGei4E_YN0]2
+!s100 G_6GG?nQ2D`_2oVk;lF?R0
 Z7 OV;C;10.5b;63
 33
-Z8 !s110 1795028938
+Z8 !s110 1795378601
 !i10b 1
-Z9 !s108 1795028938.000000
+Z9 !s108 1795378601.000000
 Z10 !s90 -reportprogress|300|-2008|-work|work|D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/clock_div.vhd|
 Z11 !s107 D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/clock_div.vhd|
 !i113 1
@@ -34,7 +34,7 @@ Artl
 R2
 R3
 R4
-Z14 DEx4 work 9 clock_div 0 22 1KIe8=TNERFeOFTMdGOhc2
+Z14 DEx4 work 9 clock_div 0 22 6_BoDUWgo3oGei4E_YN0]2
 l19
 L17
 Vdi3hd`lc3MYczZIF5_2;40
@@ -63,11 +63,11 @@ V7Q:=2jLm2c=ijom5zfYOK0
 !s100 bEZ_V=@:R`jm3_1g97oBi1
 R7
 33
-R8
+Z18 !s110 1795378600
 !i10b 1
-R9
-Z18 !s90 -reportprogress|300|-2008|-work|work|D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/comparador.vhd|
-Z19 !s107 D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/comparador.vhd|
+Z19 !s108 1795378600.000000
+Z20 !s90 -reportprogress|300|-2008|-work|work|D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/comparador.vhd|
+Z21 !s107 D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/comparador.vhd|
 !i113 1
 R12
 R13
@@ -75,29 +75,29 @@ Aarch
 R2
 R3
 R4
-Z20 DEx4 work 10 comparator 0 22 7Q:=2jLm2c=ijom5zfYOK0
+Z22 DEx4 work 10 comparator 0 22 7Q:=2jLm2c=ijom5zfYOK0
 l18
 L17
 VH64cDYbcmgN^Ic4f:ZM1G2
 !s100 AiE<[ah[X<aTkfVb5U=211
 R7
 33
-R8
-!i10b 1
-R9
 R18
+!i10b 1
 R19
+R20
+R21
 !i113 1
 R12
 R13
 Econtroller
-Z21 w1795025179
+Z23 w1795025179
 R2
 R3
 R4
 R0
-Z22 8D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/controller.vhd
-Z23 FD:/User/Downloads/NEW_CRIPTO/cripto_vhdl/controller.vhd
+Z24 8D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/controller.vhd
+Z25 FD:/User/Downloads/NEW_CRIPTO/cripto_vhdl/controller.vhd
 l0
 L6
 Vm>7CFzS6SXZ_CGn4I1gYC2
@@ -107,8 +107,8 @@ R7
 R8
 !i10b 1
 R9
-Z24 !s90 -reportprogress|300|-2008|-work|work|D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/controller.vhd|
-Z25 !s107 D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/controller.vhd|
+Z26 !s90 -reportprogress|300|-2008|-work|work|D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/controller.vhd|
+Z27 !s107 D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/controller.vhd|
 !i113 1
 R12
 R13
@@ -116,7 +116,7 @@ Aarch_controller
 R2
 R3
 R4
-Z26 DEx4 work 10 controller 0 22 m>7CFzS6SXZ_CGn4I1gYC2
+Z28 DEx4 work 10 controller 0 22 m>7CFzS6SXZ_CGn4I1gYC2
 l36
 L24
 VLjQM?6TTQi?HOnb4eg_2W0
@@ -126,197 +126,197 @@ R7
 R8
 !i10b 1
 R9
-R24
-R25
+R26
+R27
 !i113 1
 R12
 R13
 Ecriptografia
-Z27 w1795025977
+Z29 w1795377159
 R3
 R4
 R0
-Z28 8D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd
-Z29 FD:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd
+Z30 8D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd
+Z31 FD:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd
 l0
 L5
-VZ<Nl[K^8UdSIk[JSSVj;G1
-!s100 ;_Yj:_Bfhf>e6iEXfCMg[2
+Ve8LENFnhPSU^Ro_CPMjET1
+!s100 Xoa7aU@G3Am^A`NN;LE^40
 R7
 33
 R8
 !i10b 1
 R9
-Z30 !s90 -reportprogress|300|-2008|-work|work|D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd|
-Z31 !s107 D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd|
+Z32 !s90 -reportprogress|300|-2008|-work|work|D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd|
+Z33 !s107 D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd|
 !i113 1
 R12
 R13
 Artl
 R14
-Z32 DEx4 work 7 hex7seg 0 22 M1W;5i>YJ^BKfIMQ^`@=M1
+Z34 DEx4 work 7 hex7seg 0 22 M1W;5i>YJ^BKfIMQ^`@=M1
 R2
-R26
-Z33 DEx4 work 8 datapath 0 22 Bn_58Uo@D5Aa099ZYOoP:3
+R28
+Z35 DEx4 work 8 datapath 0 22 ZJOG<J6iX2@gBWMe2U06g2
 R3
 R4
-Z34 DEx4 work 12 criptografia 0 22 Z<Nl[K^8UdSIk[JSSVj;G1
-l28
-L15
-VhDEdaaUN3:i[dU0XGGD4k1
-!s100 GcnnOEbi<oQVVCCNo02ke3
+Z36 DEx4 work 12 criptografia 0 22 e8LENFnhPSU^Ro_CPMjET1
+l30
+L17
+V`ZV=a<lQbW>Yibjj>GMl40
+!s100 >akGV10n>OOe1D7MogO>n1
 R7
 33
 R8
 !i10b 1
 R9
-R30
-R31
+R32
+R33
 !i113 1
 R12
 R13
 Edatapath
-Z35 w1794961882
+Z37 w1795376914
 R3
 R4
 R0
-Z36 8D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/datapath.vhd
-Z37 FD:/User/Downloads/NEW_CRIPTO/cripto_vhdl/datapath.vhd
+Z38 8D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/datapath.vhd
+Z39 FD:/User/Downloads/NEW_CRIPTO/cripto_vhdl/datapath.vhd
 l0
 L7
-VBn_58Uo@D5Aa099ZYOoP:3
-!s100 =@;ZFca4:oRW4=lBoaAlW0
+VZJOG<J6iX2@gBWMe2U06g2
+!s100 [CXF2hLCFHbCk2=fR=^Y>3
 R7
 33
 R8
 !i10b 1
 R9
-Z38 !s90 -reportprogress|300|-2008|-work|work|D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/datapath.vhd|
-Z39 !s107 D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/datapath.vhd|
+Z40 !s90 -reportprogress|300|-2008|-work|work|D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/datapath.vhd|
+Z41 !s107 D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/datapath.vhd|
 !i113 1
 R12
 R13
 Aarch_datapath
-Z40 DEx4 work 9 xor_maker 0 22 5oa:R4>d=n6hSekmi9J:d3
-Z41 DEx4 work 8 permuter 0 22 jnNK=D4[N_l<8`;g@4>CM2
-Z42 DEx4 work 6 roller 0 22 9Ro9U:B93MeZO7kF5CERk2
-R20
+Z42 DEx4 work 9 xor_maker 0 22 5oa:R4>d=n6hSekmi9J:d3
+Z43 DEx4 work 8 permuter 0 22 jnNK=D4[N_l<8`;g@4>CM2
+Z44 DEx4 work 6 roller 0 22 9Ro9U:B93MeZO7kF5CERk2
+R22
 R2
-Z43 DEx4 work 11 registrador 0 22 XDLcV=GlW1Noc_bYj`0oI2
+Z45 DEx4 work 11 registrador 0 22 XDLcV=GlW1Noc_bYj`0oI2
 R3
 R4
-R33
-l22
-L20
-VmKThKg][hI@;`eJMHS57S2
-!s100 ?VoR0cbz_6M8=]7>e^@1z3
+R35
+l23
+L21
+VKDkne0<O4IPBE^kSNjoQ83
+!s100 HlmjKndF=1[P6jndT:Y891
 R7
 33
 R8
 !i10b 1
 R9
-R38
-R39
+R40
+R41
 !i113 1
 R12
 R13
 Ehex7seg
-Z44 w1794965695
+Z46 w1794965695
 R3
 R4
 R0
-Z45 8D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/hex7seg.vhd
-Z46 FD:/User/Downloads/NEW_CRIPTO/cripto_vhdl/hex7seg.vhd
+Z47 8D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/hex7seg.vhd
+Z48 FD:/User/Downloads/NEW_CRIPTO/cripto_vhdl/hex7seg.vhd
 l0
 L8
 VM1W;5i>YJ^BKfIMQ^`@=M1
 !s100 TnDa[bY9`Q=I1bYgVFGKz3
 R7
 33
-R8
+R18
 !i10b 1
-R9
-Z47 !s90 -reportprogress|300|-2008|-work|work|D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/hex7seg.vhd|
-Z48 !s107 D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/hex7seg.vhd|
+Z49 !s108 1795378599.000000
+Z50 !s90 -reportprogress|300|-2008|-work|work|D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/hex7seg.vhd|
+Z51 !s107 D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/hex7seg.vhd|
 !i113 1
 R12
 R13
 Artl
 R3
 R4
-R32
+R34
 l29
 L24
 V0m_2I:OKXg>A7U2Eh@O>E3
 !s100 iAc`HOKPUF7nK7`dcU9cK3
 R7
 33
-R8
+R18
 !i10b 1
-R9
-R47
-R48
+R49
+R50
+R51
 !i113 1
 R12
 R13
 Epermuter
-Z49 w1793121442
+Z52 w1793121442
 R3
 R4
 R0
-Z50 8D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/permuter.vhd
-Z51 FD:/User/Downloads/NEW_CRIPTO/cripto_vhdl/permuter.vhd
+Z53 8D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/permuter.vhd
+Z54 FD:/User/Downloads/NEW_CRIPTO/cripto_vhdl/permuter.vhd
 l0
 L6
 VjnNK=D4[N_l<8`;g@4>CM2
 !s100 zoRVQ:55=McknXj1I=aj:1
 R7
 33
-R8
+R18
 !i10b 1
-R9
-Z52 !s90 -reportprogress|300|-2008|-work|work|D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/permuter.vhd|
-Z53 !s107 D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/permuter.vhd|
+R19
+Z55 !s90 -reportprogress|300|-2008|-work|work|D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/permuter.vhd|
+Z56 !s107 D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/permuter.vhd|
 !i113 1
 R12
 R13
 Aarch_permuter
 R3
 R4
-R41
+R43
 l14
 L13
 V[:kJk39lV_D4SWb[_RmCl3
 !s100 1oo8JY8l:bLM9CBzIg`3>2
 R7
 33
-R8
+R18
 !i10b 1
-R9
-R52
-R53
+R19
+R55
+R56
 !i113 1
 R12
 R13
 Eregistrador
-Z54 w1794967547
+Z57 w1794967547
 R2
 R3
 R4
 R0
-Z55 8D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/registrador.vhd
-Z56 FD:/User/Downloads/NEW_CRIPTO/cripto_vhdl/registrador.vhd
+Z58 8D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/registrador.vhd
+Z59 FD:/User/Downloads/NEW_CRIPTO/cripto_vhdl/registrador.vhd
 l0
 L5
 VXDLcV=GlW1Noc_bYj`0oI2
 !s100 F=EgUlDJ[F6hKOQ@zJ16K3
 R7
 33
-R8
+R18
 !i10b 1
-R9
-Z57 !s90 -reportprogress|300|-2008|-work|work|D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/registrador.vhd|
-Z58 !s107 D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/registrador.vhd|
+R19
+Z60 !s90 -reportprogress|300|-2008|-work|work|D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/registrador.vhd|
+Z61 !s107 D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/registrador.vhd|
 !i113 1
 R12
 R13
@@ -324,7 +324,7 @@ Artl
 R2
 R3
 R4
-R43
+R45
 l13
 L12
 V1N?>FHzF:O;nZl]fIGK3i0
@@ -333,76 +333,76 @@ R7
 33
 R8
 !i10b 1
-R9
-R57
-R58
+R19
+R60
+R61
 !i113 1
 R12
 R13
 Eroller
-Z59 w1794959036
+Z62 w1794959036
 R3
 R4
 R0
-Z60 8D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/roller.vhd
-Z61 FD:/User/Downloads/NEW_CRIPTO/cripto_vhdl/roller.vhd
+Z63 8D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/roller.vhd
+Z64 FD:/User/Downloads/NEW_CRIPTO/cripto_vhdl/roller.vhd
 l0
 L6
 V9Ro9U:B93MeZO7kF5CERk2
 !s100 Tio@m4@0Df<SezAoK4_gD1
 R7
 33
-R8
+R18
 !i10b 1
-R9
-Z62 !s90 -reportprogress|300|-2008|-work|work|D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/roller.vhd|
-Z63 !s107 D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/roller.vhd|
+R19
+Z65 !s90 -reportprogress|300|-2008|-work|work|D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/roller.vhd|
+Z66 !s107 D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/roller.vhd|
 !i113 1
 R12
 R13
 Aarch_roller
 R3
 R4
-R42
+R44
 l15
 L14
 Vo_FeAKaWlb;zL;M97VDf83
 !s100 g;OaT0V71d^e=Z=9QoN0T0
 R7
 33
-R8
+R18
 !i10b 1
-R9
-R62
-R63
+R19
+R65
+R66
 !i113 1
 R12
 R13
 Etb_criptografia
-Z64 w1795028707
-Z65 DPx3 std 3 env 0 22 d?`1ck@NdeD@H3RZG7FgZ2
+Z67 w1795028707
+Z68 DPx3 std 3 env 0 22 d?`1ck@NdeD@H3RZG7FgZ2
 R3
 R4
 R0
-Z66 8D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_Criptografia.vhd
-Z67 FD:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_Criptografia.vhd
+Z69 8D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_Criptografia.vhd
+Z70 FD:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_Criptografia.vhd
 l0
 L5
 V:o9G3AVAnO[CCTCfzfEL21
 !s100 EX0@9?Vg0S3jn?67SP]5?3
 R7
 33
-Z68 !s110 1795028939
+R8
 !i10b 1
-Z69 !s108 1795028939.000000
-Z70 !s90 -reportprogress|300|-2008|-work|work|D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_Criptografia.vhd|
-Z71 !s107 D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_Criptografia.vhd|
+R9
+Z71 !s90 -reportprogress|300|-2008|-work|work|D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_Criptografia.vhd|
+Z72 !s107 D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_Criptografia.vhd|
 !i113 1
 R12
 R13
 Atest
-R34
-R65
+R36
+R68
 R3
 R4
 DEx4 work 15 tb_criptografia 0 22 :o9G3AVAnO[CCTCfzfEL21
@@ -412,50 +412,50 @@ VGAn6TJ8=@nXi1X7ZQ0C;_2
 !s100 Ck`hC7>71hm4J?Hb@BJL`3
 R7
 33
-R68
+R8
 !i10b 1
-R69
-R70
+R9
 R71
+R72
 !i113 1
 R12
 R13
 Exor_maker
-Z72 w1794961855
+Z73 w1794961855
 R3
 R4
 R0
-Z73 8D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/xor_maker.vhd
-Z74 FD:/User/Downloads/NEW_CRIPTO/cripto_vhdl/xor_maker.vhd
+Z74 8D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/xor_maker.vhd
+Z75 FD:/User/Downloads/NEW_CRIPTO/cripto_vhdl/xor_maker.vhd
 l0
 L5
 V5oa:R4>d=n6hSekmi9J:d3
 !s100 2bMkJYFn@B_0GK^:z]CNO0
 R7
 33
-R8
+R18
 !i10b 1
-R9
-Z75 !s90 -reportprogress|300|-2008|-work|work|D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/xor_maker.vhd|
-Z76 !s107 D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/xor_maker.vhd|
+R19
+Z76 !s90 -reportprogress|300|-2008|-work|work|D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/xor_maker.vhd|
+Z77 !s107 D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/xor_maker.vhd|
 !i113 1
 R12
 R13
 Aarch_xor
 R3
 R4
-R40
+R42
 l13
 L12
 VT`^i<HF@7:EMP?l@`1>iN2
 !s100 02]cCV:>l2eP<51Qok=I[1
 R7
 33
-R8
+R18
 !i10b 1
-R9
-R75
+R19
 R76
+R77
 !i113 1
 R12
 R13

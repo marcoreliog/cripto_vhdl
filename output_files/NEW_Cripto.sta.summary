@@ -2,73 +2,73 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow 1200mV 85C Model Setup 'clock_div:clock_div|tick'
-Slack : -2.513
-TNS   : -91.614
-
 Type  : Slow 1200mV 85C Model Setup 'base_clock'
-Slack : -2.374
-TNS   : -39.473
+Slack : -2.757
+TNS   : -63.645
+
+Type  : Slow 1200mV 85C Model Setup 'clock_div:clock_div|tick'
+Slack : -2.561
+TNS   : -100.215
 
 Type  : Slow 1200mV 85C Model Hold 'clock_div:clock_div|tick'
-Slack : 0.347
+Slack : 0.329
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'base_clock'
-Slack : 0.645
+Slack : 0.495
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'base_clock'
 Slack : -3.000
-TNS   : -26.851
+TNS   : -38.075
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clock_div:clock_div|tick'
 Slack : -1.403
 TNS   : -79.971
 
-Type  : Slow 1200mV 0C Model Setup 'clock_div:clock_div|tick'
-Slack : -2.273
-TNS   : -79.013
-
 Type  : Slow 1200mV 0C Model Setup 'base_clock'
-Slack : -2.092
-TNS   : -34.730
+Slack : -2.450
+TNS   : -56.820
+
+Type  : Slow 1200mV 0C Model Setup 'clock_div:clock_div|tick'
+Slack : -2.267
+TNS   : -86.750
 
 Type  : Slow 1200mV 0C Model Hold 'clock_div:clock_div|tick'
-Slack : 0.312
+Slack : 0.295
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'base_clock'
-Slack : 0.596
+Slack : 0.449
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'base_clock'
 Slack : -3.000
-TNS   : -26.851
+TNS   : -38.075
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clock_div:clock_div|tick'
 Slack : -1.403
 TNS   : -79.971
 
-Type  : Fast 1200mV 0C Model Setup 'clock_div:clock_div|tick'
-Slack : -0.552
-TNS   : -11.520
-
 Type  : Fast 1200mV 0C Model Setup 'base_clock'
-Slack : -0.402
-TNS   : -6.477
+Slack : -0.588
+TNS   : -12.469
+
+Type  : Fast 1200mV 0C Model Setup 'clock_div:clock_div|tick'
+Slack : -0.494
+TNS   : -16.001
 
 Type  : Fast 1200mV 0C Model Hold 'clock_div:clock_div|tick'
-Slack : 0.152
+Slack : 0.144
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'base_clock'
-Slack : 0.249
+Slack : 0.172
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'base_clock'
 Slack : -3.000
-TNS   : -20.578
+TNS   : -28.912
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clock_div:clock_div|tick'
 Slack : -1.000
