@@ -1,11 +1,11 @@
-Fitter Status : Successful - Sun Nov 22 16:53:25 2026
-Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Fitter Status : Successful - Mon Nov 23 17:00:51 2026
+Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 Revision Name : NEW_Cripto
 Top-level Entity Name : Criptografia
 Family : MAX 10
 Device : 10M50DAF484C7G
 Timing Models : Final
-Total logic elements : 184 / 49,760 ( < 1 % )
+Total logic elements : 183 / 49,760 ( < 1 % )
     Total combinational functions : 180 / 49,760 ( < 1 % )
     Dedicated logic registers : 82 / 49,760 ( < 1 % )
 Total registers : 82
