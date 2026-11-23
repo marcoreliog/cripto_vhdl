@@ -3,6 +3,9 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 entity Criptografia is
+	generic (
+		DIVISOR : positive := 10000000
+	);
 	port (
 		base_clock : in std_logic;
 		enter, reset : in std_logic;
@@ -79,6 +82,9 @@ begin
 		);
 		
 	clock_div: entity work.clock_div
+		generic map (
+			DIVISOR => DIVISOR
+		)
 		port map (
 			clk => sbase_Clock,
 			reset => not sreset,

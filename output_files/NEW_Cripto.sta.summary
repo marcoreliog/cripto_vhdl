@@ -7,8 +7,8 @@ Slack : -2.746
 TNS   : -64.614
 
 Type  : Slow 1200mV 85C Model Setup 'clock_div:clock_div|tick'
-Slack : -2.640
-TNS   : -96.228
+Slack : -2.536
+TNS   : -92.352
 
 Type  : Slow 1200mV 85C Model Hold 'clock_div:clock_div|tick'
 Slack : 0.330
@@ -31,8 +31,8 @@ Slack : -2.462
 TNS   : -58.018
 
 Type  : Slow 1200mV 0C Model Setup 'clock_div:clock_div|tick'
-Slack : -2.363
-TNS   : -84.632
+Slack : -2.233
+TNS   : -80.973
 
 Type  : Slow 1200mV 0C Model Hold 'clock_div:clock_div|tick'
 Slack : 0.295
@@ -55,8 +55,8 @@ Slack : -0.551
 TNS   : -11.983
 
 Type  : Fast 1200mV 0C Model Setup 'clock_div:clock_div|tick'
-Slack : -0.530
-TNS   : -11.724
+Slack : -0.486
+TNS   : -10.597
 
 Type  : Fast 1200mV 0C Model Hold 'clock_div:clock_div|tick'
 Slack : 0.144

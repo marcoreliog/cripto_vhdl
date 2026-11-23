@@ -6,12 +6,12 @@ end tb_datapath;
 
 architecture test of tb_datapath is
 
-    -- Declaracao do componente, como no tb_coin_detector.
     component datapath is
         port(
             clk_sys, ld_x, ld_k, ld_v, ld_c, rot_dir, clr : in std_logic;
             sw : in std_logic_vector(9 downto 0);
             sel : in std_logic_vector(2 downto 0);
+            leds : out std_logic_vector(9 downto 0);
             equals, existe_cripto : out std_logic
         );
     end component;
@@ -20,6 +20,7 @@ architecture test of tb_datapath is
     signal ld_x, ld_k, ld_v, ld_c, rot_dir, clr : std_logic := '0';
     signal sw : std_logic_vector(9 downto 0) := (others => '0');
     signal sel : std_logic_vector(2 downto 0) := "000";
+    signal leds : std_logic_vector(9 downto 0);
     signal equals, existe_cripto : std_logic;
 
 begin
@@ -33,6 +34,7 @@ begin
             ld_k => ld_k,
             ld_v => ld_v,
             ld_c => ld_c,
+            leds => leds,
             sel => sel,
             rot_dir => rot_dir,
             equals => equals,

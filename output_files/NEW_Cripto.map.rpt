@@ -1,6 +1,6 @@
 Analysis & Synthesis report for NEW_Cripto
-Mon Nov 23 17:00:45 2026
-Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+Mon Nov 23 20:41:12 2026
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
 ---------------------
@@ -16,29 +16,30 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   8. State Machine - |Criptografia|controller:controller|atual
   9. General Register Statistics
  10. Multiplexer Restructuring Statistics (Restructuring Performed)
- 11. Parameter Settings for User Entity Instance: datapath:datapath|registrador:reg_v
- 12. Parameter Settings for User Entity Instance: datapath:datapath|registrador:reg_k
- 13. Parameter Settings for User Entity Instance: datapath:datapath|registrador:reg_x
- 14. Parameter Settings for User Entity Instance: datapath:datapath|registrador:reg_c
- 15. Parameter Settings for User Entity Instance: datapath:datapath|comparator:comp
- 16. Parameter Settings for User Entity Instance: hex7seg:display
- 17. Parameter Settings for User Entity Instance: clock_div:clock_div
- 18. Port Connectivity Checks: "datapath:datapath|comparator:comp"
- 19. Port Connectivity Checks: "datapath:datapath|registrador:reg_x"
- 20. Port Connectivity Checks: "datapath:datapath|registrador:reg_k"
- 21. Port Connectivity Checks: "datapath:datapath|registrador:reg_v"
- 22. Post-Synthesis Netlist Statistics for Top Partition
- 23. Elapsed Time Per Partition
- 24. Analysis & Synthesis Messages
+ 11. Parameter Settings for User Entity Instance: Top-level Entity: |Criptografia
+ 12. Parameter Settings for User Entity Instance: datapath:datapath|registrador:reg_v
+ 13. Parameter Settings for User Entity Instance: datapath:datapath|registrador:reg_k
+ 14. Parameter Settings for User Entity Instance: datapath:datapath|registrador:reg_x
+ 15. Parameter Settings for User Entity Instance: datapath:datapath|registrador:reg_c
+ 16. Parameter Settings for User Entity Instance: datapath:datapath|comparator:comp
+ 17. Parameter Settings for User Entity Instance: hex7seg:display
+ 18. Parameter Settings for User Entity Instance: clock_div:clock_div
+ 19. Port Connectivity Checks: "datapath:datapath|comparator:comp"
+ 20. Port Connectivity Checks: "datapath:datapath|registrador:reg_x"
+ 21. Port Connectivity Checks: "datapath:datapath|registrador:reg_k"
+ 22. Port Connectivity Checks: "datapath:datapath|registrador:reg_v"
+ 23. Post-Synthesis Netlist Statistics for Top Partition
+ 24. Elapsed Time Per Partition
+ 25. Analysis & Synthesis Messages
 
 
 
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2020  Intel Corporation. All rights reserved.
+Copyright (C) 2018  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
-and other software and tools, and any partner logic 
+and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
@@ -48,16 +49,15 @@ the Intel FPGA IP License Agreement, or other applicable license
 agreement, including, without limitation, that your use is for
 the sole purpose of programming logic devices manufactured by
 Intel and sold by Intel or its authorized distributors.  Please
-refer to the applicable agreement for further details, at
-https://fpgasoftware.intel.com/eula.
+refer to the applicable agreement for further details.
 
 
 
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Nov 23 17:00:45 2026       ;
-; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
+; Analysis & Synthesis Status        ; Successful - Mon Nov 23 20:41:11 2026       ;
+; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; NEW_Cripto                                  ;
 ; Top-level Entity Name              ; Criptografia                                ;
 ; Family                             ; MAX 10                                      ;
@@ -168,34 +168,34 @@ https://fpgasoftware.intel.com/eula.
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
 ; Number detected on machine ; 8           ;
-; Maximum allowed            ; 6           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 6           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.0%      ;
-;     Processors 3-6         ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                       ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                ; Library ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------------------------+---------+
-; hex7seg.vhd                      ; yes             ; User VHDL File  ; /home/usuario/Documentos/Paulo/cripto_vhdl/hex7seg.vhd      ;         ;
-; xor_maker.vhd                    ; yes             ; User VHDL File  ; /home/usuario/Documentos/Paulo/cripto_vhdl/xor_maker.vhd    ;         ;
-; comparador.vhd                   ; yes             ; User VHDL File  ; /home/usuario/Documentos/Paulo/cripto_vhdl/comparador.vhd   ;         ;
-; roller.vhd                       ; yes             ; User VHDL File  ; /home/usuario/Documentos/Paulo/cripto_vhdl/roller.vhd       ;         ;
-; permuter.vhd                     ; yes             ; User VHDL File  ; /home/usuario/Documentos/Paulo/cripto_vhdl/permuter.vhd     ;         ;
-; registrador.vhd                  ; yes             ; User VHDL File  ; /home/usuario/Documentos/Paulo/cripto_vhdl/registrador.vhd  ;         ;
-; datapath.vhd                     ; yes             ; User VHDL File  ; /home/usuario/Documentos/Paulo/cripto_vhdl/datapath.vhd     ;         ;
-; clock_div.vhd                    ; yes             ; User VHDL File  ; /home/usuario/Documentos/Paulo/cripto_vhdl/clock_div.vhd    ;         ;
-; controller.vhd                   ; yes             ; User VHDL File  ; /home/usuario/Documentos/Paulo/cripto_vhdl/controller.vhd   ;         ;
-; Criptografia.vhd                 ; yes             ; User VHDL File  ; /home/usuario/Documentos/Paulo/cripto_vhdl/Criptografia.vhd ;         ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                     ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                              ; Library ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------+---------+
+; hex7seg.vhd                      ; yes             ; User VHDL File  ; D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/hex7seg.vhd      ;         ;
+; xor_maker.vhd                    ; yes             ; User VHDL File  ; D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/xor_maker.vhd    ;         ;
+; comparador.vhd                   ; yes             ; User VHDL File  ; D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/comparador.vhd   ;         ;
+; roller.vhd                       ; yes             ; User VHDL File  ; D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/roller.vhd       ;         ;
+; permuter.vhd                     ; yes             ; User VHDL File  ; D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/permuter.vhd     ;         ;
+; registrador.vhd                  ; yes             ; User VHDL File  ; D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/registrador.vhd  ;         ;
+; datapath.vhd                     ; yes             ; User VHDL File  ; D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/datapath.vhd     ;         ;
+; clock_div.vhd                    ; yes             ; User VHDL File  ; D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/clock_div.vhd    ;         ;
+; controller.vhd                   ; yes             ; User VHDL File  ; D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/controller.vhd   ;         ;
+; Criptografia.vhd                 ; yes             ; User VHDL File  ; D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd ;         ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------+---------+
 
 
 +------------------------------------------------------------------------+
@@ -295,16 +295,26 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |Criptografia|datapath:datapath|registrador:reg_c|Q[1] ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |Criptografia|datapath:datapath|registrador:reg_v|Q[5] ;
-; 3:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |Criptografia|clock_div:clock_div|n[10]                ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |Criptografia|datapath:datapath|registrador:reg_k|Q[6] ;
-; 11:1               ; 10 bits   ; 70 LEs        ; 40 LEs               ; 30 LEs                 ; Yes        ; |Criptografia|datapath:datapath|registrador:reg_x|Q[5] ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |Criptografia|controller:controller|Selector16         ;
-; 9:1                ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |Criptografia|controller:controller|Selector6          ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |Criptografia|datapath:datapath|registrador:reg_c|Q[5] ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |Criptografia|datapath:datapath|registrador:reg_v|Q[3] ;
+; 3:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |Criptografia|clock_div:clock_div|n[8]                 ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |Criptografia|datapath:datapath|registrador:reg_k|Q[1] ;
+; 11:1               ; 10 bits   ; 70 LEs        ; 40 LEs               ; 30 LEs                 ; Yes        ; |Criptografia|datapath:datapath|registrador:reg_x|Q[0] ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |Criptografia|controller:controller|Selector9          ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |Criptografia|controller:controller|Selector15         ;
 ; 9:1                ; 2 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |Criptografia|controller:controller|Selector10         ;
-; 12:1               ; 2 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |Criptografia|controller:controller|Selector7          ;
+; 12:1               ; 2 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |Criptografia|controller:controller|Selector14         ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |Criptografia ;
++----------------+----------+--------------------------------------------------+
+; Parameter Name ; Value    ; Type                                             ;
++----------------+----------+--------------------------------------------------+
+; DIVISOR        ; 10000000 ; Signed Integer                                   ;
++----------------+----------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +----------------------------------------------------------------------------------+
@@ -456,71 +466,92 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
-    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Mon Nov 23 17:00:39 2026
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Mon Nov 23 20:40:58 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off NEW_Cripto -c NEW_Cripto
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
-Info (12021): Found 2 design units, including 1 entities, in source file tb_Criptografia.vhd
-    Info (12022): Found design unit 1: tb_Criptografia-test File: /home/usuario/Documentos/Paulo/cripto_vhdl/tb_Criptografia.vhd Line: 8
-    Info (12023): Found entity 1: tb_Criptografia File: /home/usuario/Documentos/Paulo/cripto_vhdl/tb_Criptografia.vhd Line: 5
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file tb_xor_maker.vhd
+    Info (12022): Found design unit 1: tb_xor_maker-test File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_xor_maker.vhd Line: 8
+    Info (12023): Found entity 1: tb_xor_maker File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_xor_maker.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file tb_roller.vhd
+    Info (12022): Found design unit 1: tb_roller-test File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_roller.vhd Line: 8
+    Info (12023): Found entity 1: tb_roller File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_roller.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file tb_registrador.vhd
+    Info (12022): Found design unit 1: tb_registrador-test File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_registrador.vhd Line: 8
+    Info (12023): Found entity 1: tb_registrador File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_registrador.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file tb_permuter.vhd
+    Info (12022): Found design unit 1: tb_permuter-test File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_permuter.vhd Line: 8
+    Info (12023): Found entity 1: tb_permuter File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_permuter.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file tb_hex7seg.vhd
+    Info (12022): Found design unit 1: tb_hex7seg-test File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_hex7seg.vhd Line: 8
+    Info (12023): Found entity 1: tb_hex7seg File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_hex7seg.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file tb_comparador.vhd
+    Info (12022): Found design unit 1: tb_comparador-test File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_comparador.vhd Line: 8
+    Info (12023): Found entity 1: tb_comparador File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_comparador.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file tb_clock_div.vhd
+    Info (12022): Found design unit 1: tb_clock_div-test File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_clock_div.vhd Line: 8
+    Info (12023): Found entity 1: tb_clock_div File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_clock_div.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file tb_criptografia.vhd
+    Info (12022): Found design unit 1: tb_Criptografia-test File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_Criptografia.vhd Line: 8
+    Info (12023): Found entity 1: tb_Criptografia File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_Criptografia.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file tb_datapath.vhd
-    Info (12022): Found design unit 1: tb_datapath-test File: /home/usuario/Documentos/Paulo/cripto_vhdl/tb_datapath.vhd Line: 7
-    Info (12023): Found entity 1: tb_datapath File: /home/usuario/Documentos/Paulo/cripto_vhdl/tb_datapath.vhd Line: 4
+    Info (12022): Found design unit 1: tb_datapath-test File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_datapath.vhd Line: 7
+    Info (12023): Found entity 1: tb_datapath File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_datapath.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file tb_controller.vhd
-    Info (12022): Found design unit 1: tb_controller-test File: /home/usuario/Documentos/Paulo/cripto_vhdl/tb_controller.vhd Line: 7
-    Info (12023): Found entity 1: tb_controller File: /home/usuario/Documentos/Paulo/cripto_vhdl/tb_controller.vhd Line: 4
+    Info (12022): Found design unit 1: tb_controller-test File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_controller.vhd Line: 7
+    Info (12023): Found entity 1: tb_controller File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/tb_controller.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file hex7seg.vhd
-    Info (12022): Found design unit 1: hex7seg-rtl File: /home/usuario/Documentos/Paulo/cripto_vhdl/hex7seg.vhd Line: 24
-    Info (12023): Found entity 1: hex7seg File: /home/usuario/Documentos/Paulo/cripto_vhdl/hex7seg.vhd Line: 8
+    Info (12022): Found design unit 1: hex7seg-rtl File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/hex7seg.vhd Line: 24
+    Info (12023): Found entity 1: hex7seg File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/hex7seg.vhd Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file xor_maker.vhd
-    Info (12022): Found design unit 1: XOR_maker-arch_xor File: /home/usuario/Documentos/Paulo/cripto_vhdl/xor_maker.vhd Line: 12
-    Info (12023): Found entity 1: XOR_maker File: /home/usuario/Documentos/Paulo/cripto_vhdl/xor_maker.vhd Line: 5
+    Info (12022): Found design unit 1: XOR_maker-arch_xor File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/xor_maker.vhd Line: 12
+    Info (12023): Found entity 1: XOR_maker File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/xor_maker.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file comparador.vhd
-    Info (12022): Found design unit 1: comparator-arch File: /home/usuario/Documentos/Paulo/cripto_vhdl/comparador.vhd Line: 17
-    Info (12023): Found entity 1: comparator File: /home/usuario/Documentos/Paulo/cripto_vhdl/comparador.vhd Line: 7
+    Info (12022): Found design unit 1: comparator-arch File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/comparador.vhd Line: 17
+    Info (12023): Found entity 1: comparator File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/comparador.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file roller.vhd
-    Info (12022): Found design unit 1: roller-arch_roller File: /home/usuario/Documentos/Paulo/cripto_vhdl/roller.vhd Line: 14
-    Info (12023): Found entity 1: roller File: /home/usuario/Documentos/Paulo/cripto_vhdl/roller.vhd Line: 6
+    Info (12022): Found design unit 1: roller-arch_roller File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/roller.vhd Line: 14
+    Info (12023): Found entity 1: roller File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/roller.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file permuter.vhd
-    Info (12022): Found design unit 1: permuter-arch_permuter File: /home/usuario/Documentos/Paulo/cripto_vhdl/permuter.vhd Line: 13
-    Info (12023): Found entity 1: permuter File: /home/usuario/Documentos/Paulo/cripto_vhdl/permuter.vhd Line: 6
+    Info (12022): Found design unit 1: permuter-arch_permuter File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/permuter.vhd Line: 13
+    Info (12023): Found entity 1: permuter File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/permuter.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file registrador.vhd
-    Info (12022): Found design unit 1: registrador-rtl File: /home/usuario/Documentos/Paulo/cripto_vhdl/registrador.vhd Line: 12
-    Info (12023): Found entity 1: registrador File: /home/usuario/Documentos/Paulo/cripto_vhdl/registrador.vhd Line: 5
+    Info (12022): Found design unit 1: registrador-rtl File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/registrador.vhd Line: 12
+    Info (12023): Found entity 1: registrador File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/registrador.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file datapath.vhd
-    Info (12022): Found design unit 1: datapath-arch_datapath File: /home/usuario/Documentos/Paulo/cripto_vhdl/datapath.vhd Line: 21
-    Info (12023): Found entity 1: datapath File: /home/usuario/Documentos/Paulo/cripto_vhdl/datapath.vhd Line: 7
+    Info (12022): Found design unit 1: datapath-arch_datapath File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/datapath.vhd Line: 21
+    Info (12023): Found entity 1: datapath File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/datapath.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file clock_div.vhd
-    Info (12022): Found design unit 1: clock_div-rtl File: /home/usuario/Documentos/Paulo/cripto_vhdl/clock_div.vhd Line: 17
-    Info (12023): Found entity 1: clock_div File: /home/usuario/Documentos/Paulo/cripto_vhdl/clock_div.vhd Line: 9
+    Info (12022): Found design unit 1: clock_div-rtl File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/clock_div.vhd Line: 17
+    Info (12023): Found entity 1: clock_div File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/clock_div.vhd Line: 9
 Info (12021): Found 2 design units, including 1 entities, in source file controller.vhd
-    Info (12022): Found design unit 1: controller-arch_controller File: /home/usuario/Documentos/Paulo/cripto_vhdl/controller.vhd Line: 24
-    Info (12023): Found entity 1: controller File: /home/usuario/Documentos/Paulo/cripto_vhdl/controller.vhd Line: 6
-Info (12021): Found 2 design units, including 1 entities, in source file Criptografia.vhd
-    Info (12022): Found design unit 1: Criptografia-rtl File: /home/usuario/Documentos/Paulo/cripto_vhdl/Criptografia.vhd Line: 17
-    Info (12023): Found entity 1: Criptografia File: /home/usuario/Documentos/Paulo/cripto_vhdl/Criptografia.vhd Line: 5
+    Info (12022): Found design unit 1: controller-arch_controller File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/controller.vhd Line: 24
+    Info (12023): Found entity 1: controller File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/controller.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file criptografia.vhd
+    Info (12022): Found design unit 1: Criptografia-rtl File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 20
+    Info (12023): Found entity 1: Criptografia File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 5
 Info (12127): Elaborating entity "Criptografia" for the top level hierarchy
-Info (12128): Elaborating entity "datapath" for hierarchy "datapath:datapath" File: /home/usuario/Documentos/Paulo/cripto_vhdl/Criptografia.vhd Line: 31
-Info (12128): Elaborating entity "registrador" for hierarchy "datapath:datapath|registrador:reg_v" File: /home/usuario/Documentos/Paulo/cripto_vhdl/datapath.vhd Line: 24
-Info (12128): Elaborating entity "comparator" for hierarchy "datapath:datapath|comparator:comp" File: /home/usuario/Documentos/Paulo/cripto_vhdl/datapath.vhd Line: 68
-Info (12128): Elaborating entity "roller" for hierarchy "datapath:datapath|roller:roller" File: /home/usuario/Documentos/Paulo/cripto_vhdl/datapath.vhd Line: 78
-Info (12128): Elaborating entity "permuter" for hierarchy "datapath:datapath|permuter:perm" File: /home/usuario/Documentos/Paulo/cripto_vhdl/datapath.vhd Line: 85
-Info (12128): Elaborating entity "XOR_maker" for hierarchy "datapath:datapath|XOR_maker:xor_maker" File: /home/usuario/Documentos/Paulo/cripto_vhdl/datapath.vhd Line: 91
-Info (12128): Elaborating entity "controller" for hierarchy "controller:controller" File: /home/usuario/Documentos/Paulo/cripto_vhdl/Criptografia.vhd Line: 47
-Info (12128): Elaborating entity "hex7seg" for hierarchy "hex7seg:display" File: /home/usuario/Documentos/Paulo/cripto_vhdl/Criptografia.vhd Line: 66
-Info (12128): Elaborating entity "clock_div" for hierarchy "clock_div:clock_div" File: /home/usuario/Documentos/Paulo/cripto_vhdl/Criptografia.vhd Line: 81
+Info (12128): Elaborating entity "datapath" for hierarchy "datapath:datapath" File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 34
+Info (12128): Elaborating entity "registrador" for hierarchy "datapath:datapath|registrador:reg_v" File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/datapath.vhd Line: 24
+Info (12128): Elaborating entity "comparator" for hierarchy "datapath:datapath|comparator:comp" File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/datapath.vhd Line: 68
+Info (12128): Elaborating entity "roller" for hierarchy "datapath:datapath|roller:roller" File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/datapath.vhd Line: 78
+Info (12128): Elaborating entity "permuter" for hierarchy "datapath:datapath|permuter:perm" File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/datapath.vhd Line: 85
+Info (12128): Elaborating entity "XOR_maker" for hierarchy "datapath:datapath|XOR_maker:xor_maker" File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/datapath.vhd Line: 91
+Info (12128): Elaborating entity "controller" for hierarchy "controller:controller" File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 50
+Info (12128): Elaborating entity "hex7seg" for hierarchy "hex7seg:display" File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 69
+Info (12128): Elaborating entity "clock_div" for hierarchy "clock_div:clock_div" File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 84
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "hex5[3]" is stuck at VCC File: /home/usuario/Documentos/Paulo/cripto_vhdl/Criptografia.vhd Line: 13
-    Warning (13410): Pin "hex4[1]" is stuck at VCC File: /home/usuario/Documentos/Paulo/cripto_vhdl/Criptografia.vhd Line: 13
-    Warning (13410): Pin "hex4[2]" is stuck at VCC File: /home/usuario/Documentos/Paulo/cripto_vhdl/Criptografia.vhd Line: 13
-    Warning (13410): Pin "hex3[1]" is stuck at VCC File: /home/usuario/Documentos/Paulo/cripto_vhdl/Criptografia.vhd Line: 13
-    Warning (13410): Pin "hex3[2]" is stuck at VCC File: /home/usuario/Documentos/Paulo/cripto_vhdl/Criptografia.vhd Line: 13
-    Warning (13410): Pin "hex2[0]" is stuck at VCC File: /home/usuario/Documentos/Paulo/cripto_vhdl/Criptografia.vhd Line: 13
-    Warning (13410): Pin "hex2[1]" is stuck at VCC File: /home/usuario/Documentos/Paulo/cripto_vhdl/Criptografia.vhd Line: 13
-    Warning (13410): Pin "hex2[2]" is stuck at VCC File: /home/usuario/Documentos/Paulo/cripto_vhdl/Criptografia.vhd Line: 13
-    Warning (13410): Pin "hex2[3]" is stuck at VCC File: /home/usuario/Documentos/Paulo/cripto_vhdl/Criptografia.vhd Line: 13
-    Warning (13410): Pin "hex2[5]" is stuck at VCC File: /home/usuario/Documentos/Paulo/cripto_vhdl/Criptografia.vhd Line: 13
+    Warning (13410): Pin "hex5[3]" is stuck at VCC File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 16
+    Warning (13410): Pin "hex4[1]" is stuck at VCC File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 16
+    Warning (13410): Pin "hex4[2]" is stuck at VCC File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 16
+    Warning (13410): Pin "hex3[1]" is stuck at VCC File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 16
+    Warning (13410): Pin "hex3[2]" is stuck at VCC File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 16
+    Warning (13410): Pin "hex2[0]" is stuck at VCC File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 16
+    Warning (13410): Pin "hex2[1]" is stuck at VCC File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 16
+    Warning (13410): Pin "hex2[2]" is stuck at VCC File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 16
+    Warning (13410): Pin "hex2[3]" is stuck at VCC File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 16
+    Warning (13410): Pin "hex2[5]" is stuck at VCC File: D:/User/Downloads/NEW_CRIPTO/cripto_vhdl/Criptografia.vhd Line: 16
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
@@ -529,9 +560,9 @@ Info (21057): Implemented 265 device resources after synthesis - the final resou
     Info (21059): Implemented 52 output pins
     Info (21061): Implemented 200 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 12 warnings
-    Info: Peak virtual memory: 444 megabytes
-    Info: Processing ended: Mon Nov 23 17:00:45 2026
-    Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:14
+    Info: Peak virtual memory: 4789 megabytes
+    Info: Processing ended: Mon Nov 23 20:41:12 2026
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:25
 
 

@@ -1,6 +1,6 @@
 Timing Analyzer report for NEW_Cripto
-Mon Nov 23 17:00:57 2026
-Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+Mon Nov 23 20:41:31 2026
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
 ---------------------
@@ -53,9 +53,9 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2020  Intel Corporation. All rights reserved.
+Copyright (C) 2018  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
-and other software and tools, and any partner logic 
+and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
@@ -65,15 +65,14 @@ the Intel FPGA IP License Agreement, or other applicable license
 agreement, including, without limitation, that your use is for
 the sole purpose of programming logic devices manufactured by
 Intel and sold by Intel or its authorized distributors.  Please
-refer to the applicable agreement for further details, at
-https://fpgasoftware.intel.com/eula.
+refer to the applicable agreement for further details.
 
 
 
 +-----------------------------------------------------------------------------+
 ; Timing Analyzer Summary                                                     ;
 +-----------------------+-----------------------------------------------------+
-; Quartus Prime Version ; Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
+; Quartus Prime Version ; Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Timing Analyzer       ; Legacy Timing Analyzer                              ;
 ; Revision Name         ; NEW_Cripto                                          ;
 ; Device Family         ; MAX 10                                              ;
@@ -90,15 +89,14 @@ https://fpgasoftware.intel.com/eula.
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
 ; Number detected on machine ; 8           ;
-; Maximum allowed            ; 6           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.14        ;
-; Maximum used               ; 6           ;
+; Average used               ; 1.09        ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   2.7%      ;
-;     Processors 3-6         ;   2.7%      ;
+;     Processors 2-4         ;   3.1%      ;
 +----------------------------+-------------+
 
 
@@ -118,7 +116,7 @@ https://fpgasoftware.intel.com/eula.
 ; Fmax       ; Restricted Fmax ; Clock Name               ; Note                                                          ;
 +------------+-----------------+--------------------------+---------------------------------------------------------------+
 ; 266.95 MHz ; 250.0 MHz       ; base_clock               ; limit due to minimum period restriction (max I/O toggle rate) ;
-; 274.73 MHz ; 274.73 MHz      ; clock_div:clock_div|tick ;                                                               ;
+; 282.81 MHz ; 282.81 MHz      ; clock_div:clock_div|tick ;                                                               ;
 +------------+-----------------+--------------------------+---------------------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -129,7 +127,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 ; Clock                    ; Slack  ; End Point TNS ;
 +--------------------------+--------+---------------+
 ; base_clock               ; -2.746 ; -64.614       ;
-; clock_div:clock_div|tick ; -2.640 ; -96.228       ;
+; clock_div:clock_div|tick ; -2.536 ; -92.352       ;
 +--------------------------+--------+---------------+
 
 
@@ -177,7 +175,7 @@ No synchronizer chains to report.
 ; Fmax       ; Restricted Fmax ; Clock Name               ; Note                                                          ;
 +------------+-----------------+--------------------------+---------------------------------------------------------------+
 ; 288.85 MHz ; 250.0 MHz       ; base_clock               ; limit due to minimum period restriction (max I/O toggle rate) ;
-; 297.35 MHz ; 297.35 MHz      ; clock_div:clock_div|tick ;                                                               ;
+; 309.31 MHz ; 309.31 MHz      ; clock_div:clock_div|tick ;                                                               ;
 +------------+-----------------+--------------------------+---------------------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -188,7 +186,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 ; Clock                    ; Slack  ; End Point TNS ;
 +--------------------------+--------+---------------+
 ; base_clock               ; -2.462 ; -58.018       ;
-; clock_div:clock_div|tick ; -2.363 ; -84.632       ;
+; clock_div:clock_div|tick ; -2.233 ; -80.973       ;
 +--------------------------+--------+---------------+
 
 
@@ -236,7 +234,7 @@ No synchronizer chains to report.
 ; Clock                    ; Slack  ; End Point TNS ;
 +--------------------------+--------+---------------+
 ; base_clock               ; -0.551 ; -11.983       ;
-; clock_div:clock_div|tick ; -0.530 ; -11.724       ;
+; clock_div:clock_div|tick ; -0.486 ; -10.597       ;
 +--------------------------+--------+---------------+
 
 
@@ -285,10 +283,10 @@ No synchronizer chains to report.
 +---------------------------+----------+-------+----------+---------+---------------------+
 ; Worst-case Slack          ; -2.746   ; 0.144 ; N/A      ; N/A     ; -3.000              ;
 ;  base_clock               ; -2.746   ; 0.246 ; N/A      ; N/A     ; -3.000              ;
-;  clock_div:clock_div|tick ; -2.640   ; 0.144 ; N/A      ; N/A     ; -1.403              ;
-; Design-wide TNS           ; -160.842 ; 0.0   ; 0.0      ; 0.0     ; -118.046            ;
+;  clock_div:clock_div|tick ; -2.536   ; 0.144 ; N/A      ; N/A     ; -1.403              ;
+; Design-wide TNS           ; -156.966 ; 0.0   ; 0.0      ; 0.0     ; -118.046            ;
 ;  base_clock               ; -64.614  ; 0.000 ; N/A      ; N/A     ; -38.075             ;
-;  clock_div:clock_div|tick ; -96.228  ; 0.000 ; N/A      ; N/A     ; -79.971             ;
+;  clock_div:clock_div|tick ; -92.352  ; 0.000 ; N/A      ; N/A     ; -79.971             ;
 +---------------------------+----------+-------+----------+---------+---------------------+
 
 
@@ -767,12 +765,12 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +--------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
-    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Mon Nov 23 17:00:55 2026
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Mon Nov 23 20:41:28 2026
 Info: Command: quartus_sta NEW_Cripto -c NEW_Cripto
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'NEW_Cripto.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
@@ -790,7 +788,7 @@ Info (332146): Worst-case setup slack is -2.746
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):    -2.746             -64.614 base_clock 
-    Info (332119):    -2.640             -96.228 clock_div:clock_div|tick 
+    Info (332119):    -2.536             -92.352 clock_div:clock_div|tick 
 Info (332146): Worst-case hold slack is 0.330
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
@@ -812,7 +810,7 @@ Info (332146): Worst-case setup slack is -2.462
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):    -2.462             -58.018 base_clock 
-    Info (332119):    -2.363             -84.632 clock_div:clock_div|tick 
+    Info (332119):    -2.233             -80.973 clock_div:clock_div|tick 
 Info (332146): Worst-case hold slack is 0.295
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
@@ -832,7 +830,7 @@ Info (332146): Worst-case setup slack is -0.551
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):    -0.551             -11.983 base_clock 
-    Info (332119):    -0.530             -11.724 clock_div:clock_div|tick 
+    Info (332119):    -0.486             -10.597 clock_div:clock_div|tick 
 Info (332146): Worst-case hold slack is 0.144
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
@@ -848,9 +846,9 @@ Info (332146): Worst-case minimum pulse width slack is -3.000
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 534 megabytes
-    Info: Processing ended: Mon Nov 23 17:00:57 2026
-    Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Peak virtual memory: 4820 megabytes
+    Info: Processing ended: Mon Nov 23 20:41:31 2026
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:03
 
 

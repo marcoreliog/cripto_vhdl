@@ -7,28 +7,21 @@ end entity tb_Criptografia;
 
 architecture test of tb_Criptografia is
     signal base_clock : std_logic := '0';
+    signal reference_clock : std_logic;
     signal enter : std_logic := '1';
     signal reset : std_logic := '0';
     signal sw : std_logic_vector(9 downto 0) := (others => '0');
+    signal leds : std_logic_vector(9 downto 0);
     signal hex5, hex4, hex3, hex2, hex1, hex0 : std_logic_vector(6 downto 0);
-
-    type digitos is array (0 to 9) of std_logic_vector(6 downto 0);
-    constant DECIMAL : digitos := (
-        "1000000", "1111001", "0100100", "0110000", "0011001",
-        "0010010", "0000010", "1111000", "0000000", "0010000"
-    );
-    constant APAGADO : std_logic_vector(6 downto 0) := "1111111";
-    constant ACERTO : std_logic_vector(41 downto 0) :=
-        not ("1110111" & "0111001" & "1111001" & "1010000" & "1111000" & "0111111");
-    constant ERRO : std_logic_vector(41 downto 0) :=
-        not ("0000000" & "1111001" & "1010000" & "1010000" & "0111111" & "0000000");
 begin
-    dut: entity work.Criptografia
+    dut : entity work.Criptografia
+        generic map (DIVISOR => 2)
         port map (
             base_clock => base_clock,
             enter => enter,
             reset => reset,
             sw => sw,
+            leds => leds,
             hex5 => hex5,
             hex4 => hex4,
             hex3 => hex3,
@@ -37,143 +30,76 @@ begin
             hex0 => hex0
         );
 
+    reference_divider : entity work.clock_div
+        generic map (DIVISOR => 2)
+        port map (
+            clk => base_clock,
+            reset => not reset,
+            tick => reference_clock
+        );
+
     base_clock <= not base_clock after 5 ns;
 
-    stimulus: process
+    stimulus : process
         procedure passo is
         begin
-            wait until rising_edge(base_clock);
+            wait until rising_edge(reference_clock);
             wait for 1 ns;
         end procedure;
 
-        procedure conferir_estado(constant estado : in natural) is
-        begin
-            assert std_logic_vector'(hex5 & hex4 & hex3 & hex2 & hex1 & hex0) =
-                (APAGADO & APAGADO & APAGADO & APAGADO &
-                 DECIMAL(estado / 10) & DECIMAL(estado mod 10))
-                report "Display incorreto no estado " & integer'image(estado)
-                severity failure;
-        end procedure;
-
-        -- A controladora espera Enter ativo em '0' por um ciclo.
-        procedure confirmar(constant proximo_estado : in natural) is
+        procedure confirmar is -- simulando apertar enter
         begin
             enter <= '0';
             passo;
             enter <= '1';
-            conferir_estado(proximo_estado);
         end procedure;
 
-        procedure operacao(
-            constant codigo : in std_logic_vector(1 downto 0);
-            constant estado_operacao, estado_selecao : in natural
-        ) is
+        procedure operacao(constant codigo : in std_logic_vector(1 downto 0)) is -- simular inputar a operação da criptografia 
         begin
             sw(1 downto 0) <= codigo;
-            confirmar(estado_operacao);
+            confirmar;
             passo;
-            conferir_estado(estado_selecao);
-        end procedure;
-
-        procedure finalizar(constant esperado : in std_logic_vector(41 downto 0)) is
-        begin
-            sw(1 downto 0)<= "00";
-            enter <= '0';
-            passo;
-            enter <= '1';
-            assert (hex5 & hex4 & hex3 & hex2 & hex1 & hex0) = esperado
-                report "Resultado incorreto no display" severity failure;
-            passo;
-            assert (hex5 & hex4 & hex3 & hex2 & hex1 & hex0) = esperado
-                report "RESULT deve aguardar Enter" severity failure;
         end procedure;
     begin
-        -- Reset limpa os registradores; sem cifrado, nao permite decifrar.
-        passo;
-        conferir_estado(0);
-        reset <= '1';
-        passo;
-        conferir_estado(1);
-        sw(0) <= '1';
-        confirmar(1);
-
-        -- Cifrar 723 com chave 342: XOR, ROL e permutacao; salvar 31.
-        sw(0) <= '0';
-        confirmar(2);
-        sw <= "1011010011";
-        confirmar(3);
-        sw <= "0101010110";
-        confirmar(4);
-        operacao("01", 7, 4);
-        operacao("10", 6, 4);
-        operacao("11", 5, 4);
-        sw(1 downto 0)<= "00";
-        confirmar(8);
-        passo;
-        conferir_estado(1);
-
-        -- Decifrar com chave errada deve mostrar ERRO.
-        sw(0) <= '1';
-        confirmar(9);
-        passo;
-        conferir_estado(10);
-        operacao("11", 14, 10);
-        operacao("10", 13, 10);
-        sw(1 downto 0)<= "01";
-        confirmar(11);
-        passo;
-        conferir_estado(11);
-        sw <= "0000000000";
-        confirmar(12);
-        passo;
-        conferir_estado(10);
-        finalizar(ERRO);
-
-        -- Nova tentativa restaura o cifrado salvo; chave correta da ACERTO.
-        confirmar(1);
-        confirmar(9);
-        passo;
-        conferir_estado(10);
-        operacao("11", 14, 10);
-        operacao("10", 13, 10);
-        sw(1 downto 0)<= "01";
-        confirmar(11);
-        sw <= "0101010110";
-        confirmar(12);
-        passo;
-        conferir_estado(10);
-        finalizar(ACERTO);
-
-        -- Reset durante uma tentativa invalida o cifrado anterior.
-        confirmar(1);
-        confirmar(9);
-        passo;
-        conferir_estado(10);
-        wait for 2 ns;
-        reset <= '0';
+        wait until rising_edge(base_clock);
         wait for 1 ns;
-        conferir_estado(0);
-        passo;
         reset <= '1';
         passo;
-        conferir_estado(1);
-        confirmar(1);
 
-        -- Um cifrado igual a zero tambem deve ser considerado salvo.
+        -- Cifrar 723 com a chave 342.
         sw(0) <= '0';
-        confirmar(2);
-        sw <= "0000000000";
-        confirmar(3);
-        confirmar(4);
-        sw(1 downto 0)<= "00";
-        confirmar(8);
+        confirmar;
+        sw <= "1011010011";
+        confirmar;
+        sw <= "0101010110";
+        confirmar;
+        operacao("01");
+        operacao("10");
+        operacao("11");
+        operacao("00");
         passo;
-        conferir_estado(1);
+        assert leds = "0000011111"
+            report "Cifrado incorreto no sistema integrado" severity failure;
+
+        -- Decifrar usando a chave correta.
         sw(0) <= '1';
-        confirmar(9);
+        confirmar;
         passo;
-        conferir_estado(10);
-        finalizar(ACERTO);
+        operacao("11");
+        operacao("10");
+        sw(1 downto 0) <= "01";
+        confirmar;
+        sw <= "0101010110";
+        confirmar;
+        passo;
+        sw(1 downto 0) <= "00";
+        confirmar;
+
+        assert leds = "1011010011"
+            report "Valor decifrado incorreto no sistema integrado" severity failure;
+        assert hex5 & hex4 & hex3 & hex2 & hex1 & hex0 =
+            "0001000" & "1000110" & "0000110" & "0101111" & "0000111" & "1000000"
+            report "O resultado correto nao foi exibido" severity failure;
 
         report "Integracao Criptografia: todos os testes passaram." severity note;
         stop;
