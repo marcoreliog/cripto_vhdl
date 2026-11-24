@@ -6,7 +6,6 @@ end tb_controller;
 
 architecture test of tb_controller is
 
-    -- Declaracao do componente, como no tb_coin_detector.
     component controller is
         port(
             enter, clock, modo, equals, existe_cripto : in std_logic;
@@ -50,76 +49,62 @@ begin
 
     my_clock <= not my_clock after 5 ns;
 
-    -- Simular por 500 ns e observar display e os sinais de controle.
-    -- Reset e Enter sao ativos em '0'. Cada pulso de Enter dura 10 ns.
-    -- Os estimulos mudam entre as bordas de subida do clock.
     stimulus : process
     begin
-        -- INIT: display = 0000 e clr = 1. Depois do reset, MENU = 0001.
+
         reset <= '0';
         wait for 12 ns;
         reset <= '1';
         wait for 10 ns;
 
-        -- Sem cifrado salvo, tentar decifrar deve manter MENU.
         modo <= '1';
         enter <= '0';
         wait for 10 ns;
         enter <= '1';
         wait for 10 ns;
 
-        -- Iniciar cifragem: clr = 1 no MENU; depois INSERT_V = 0010.
         modo <= '0';
         enter <= '0';
         wait for 10 ns;
         enter <= '1';
         wait for 10 ns;
 
-        -- Confirmar o valor: ld_v = ld_x = 1; depois INSERT_K = 0011.
         enter <= '0';
         wait for 10 ns;
         enter <= '1';
         wait for 10 ns;
 
-        -- Confirmar a chave: ld_k = 1; depois SEL_OP_C = 0100.
         enter <= '0';
         wait for 10 ns;
         enter <= '1';
         wait for 10 ns;
 
-        -- Mudar op sem Enter deve manter SEL_OP_C.
         op <= "01";
         wait for 10 ns;
 
-        -- XOR_C = 0111: ld_x = 1, sel = 001; retorna a SEL_OP_C.
         enter <= '0';
         wait for 10 ns;
         enter <= '1';
         wait for 10 ns;
 
-        -- ROL_C = 0110: ld_x = 1, sel = 010, rot_dir = 0.
         op <= "10";
         enter <= '0';
         wait for 10 ns;
         enter <= '1';
         wait for 10 ns;
 
-        -- PERM_C = 0101: ld_x = 1, sel = 011.
         op <= "11";
         enter <= '0';
         wait for 10 ns;
         enter <= '1';
         wait for 10 ns;
 
-        -- SAVE_C = 1000: ld_c = 1; retorna ao MENU.
         op <= "00";
         enter <= '0';
         wait for 10 ns;
         enter <= '1';
         wait for 10 ns;
 
-        -- Simular a flag do datapath apos salvar o cifrado.
-        -- ATTEMPT_D = 1001: ld_x = 1, sel = 100; depois SEL_OP_D = 1010.
         existe_cripto <= '1';
         modo <= '1';
         enter <= '0';
@@ -127,34 +112,29 @@ begin
         enter <= '1';
         wait for 10 ns;
 
-        -- PERM_D = 1110: ld_x = 1, sel = 011.
         op <= "11";
         enter <= '0';
         wait for 10 ns;
         enter <= '1';
         wait for 10 ns;
 
-        -- ROR_D = 1101: ld_x = 1, sel = 010, rot_dir = 1.
         op <= "10";
         enter <= '0';
         wait for 10 ns;
         enter <= '1';
         wait for 10 ns;
 
-        -- TRY_K = 1011 deve aguardar outra confirmacao da chave.
         op <= "01";
         enter <= '0';
         wait for 10 ns;
         enter <= '1';
         wait for 20 ns;
 
-        -- Carregar o palpite: ld_k = 1; depois XOR_D = 1100, sel = 001.
         enter <= '0';
         wait for 10 ns;
         enter <= '1';
         wait for 10 ns;
 
-        -- Finalizar com acerto: RESULT = 1111 aguarda Enter.
         op <= "00";
         equals <= '1';
         enter <= '0';
@@ -162,7 +142,6 @@ begin
         enter <= '1';
         wait for 20 ns;
 
-        -- A mudanca de equals sozinha nao deve tirar RESULT.
         equals <= '0';
         wait for 10 ns;
         enter <= '0';
@@ -170,13 +149,11 @@ begin
         enter <= '1';
         wait for 10 ns;
 
-        -- Nova tentativa com o mesmo cifrado: ATTEMPT_D e SEL_OP_D.
         enter <= '0';
         wait for 10 ns;
         enter <= '1';
         wait for 10 ns;
 
-        -- Finalizar com erro: RESULT tambem aguarda Enter.
         enter <= '0';
         wait for 10 ns;
         enter <= '1';
@@ -186,7 +163,6 @@ begin
         enter <= '1';
         wait for 10 ns;
 
-        -- Reiniciar durante uma tentativa, fora da borda do clock.
         enter <= '0';
         wait for 10 ns;
         enter <= '1';
